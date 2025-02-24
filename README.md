@@ -32,6 +32,7 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 Berapa versi HTTP yang digunakan?
 
 **Jawaban:** <br>
+![App Screenshot](Assets/no1.png)
 ![App Screenshot](Assets/no1a.png)<br>
 &nbsp;&nbsp; Dari hasil Follow TCP Stream, terlihat bahwa request dan response yang digunakan mengikuti protokol HTTP versi 1.1. Ini menunjukkan bahwa komunikasi antara client dan server berlangsung menggunakan HTTP/1.1.
 <br>
