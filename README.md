@@ -32,7 +32,7 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 Berapa versi HTTP yang digunakan?
 
 **Jawaban:** <br>
-![App Screenshot](Assets/no1.png)<br>
+![App Screenshot](Assets/no1a.png)<br>
 &nbsp;&nbsp; Dari hasil Follow TCP Stream, terlihat bahwa request dan response yang digunakan mengikuti protokol HTTP versi 1.1. Ini menunjukkan bahwa komunikasi antara client dan server berlangsung menggunakan HTTP/1.1.
 <br>
 <br>
@@ -44,7 +44,7 @@ Berapa IP address dari client maupun server?
 
 **Jawaban:** <br>
 ![App Screenshot](Assets/no2.png)<br>
-![App Screenshot](Assets/no22.png)<br><br>
+![App Screenshot](Assets/no3.png)<br><br>
 &nbsp;&nbsp; Alamat IP yang digunakan oleh HTTP Client adalah **145.254.160.237**, sedangkan HTTP Server memiliki alamat IP **65.208.228.223**. Koneksi antara keduanya memungkinkan pertukaran data melalui protokol HTTP untuk keperluan pengiriman dan penerimaan informasi.
 <br>
 <br>
@@ -55,7 +55,7 @@ Berapa IP address dari client maupun server?
 Berapa waktu dari client mengirimkan HTTP request?
 
 **Jawaban:** <br>
-![App Screenshot](Assets/no3.png)<br><br>
+![App Screenshot](Assets/no4.png)<br><br>
 &nbsp;&nbsp; Permintaan HTTP dari client dikirimkan pada waktu 0,911310 detik. Proses ini menandai awal komunikasi antara client dan server dalam pertukaran data.
 <br>
 <br>
@@ -66,8 +66,8 @@ Berapa waktu dari client mengirimkan HTTP request?
 Berapa Waktu dari server mengirimkan server? dan berapa durasinya?
 
 **Jawaban:** <br>
-![App Screenshot](Assets/no4.png)<br>
-![App Screenshot](Assets/no5.png)<br><br>
+![App Screenshot](Assets/no5.png)<br>
+![App Screenshot](Assets/no6.png)<br><br>
 &nbsp;&nbsp; Proses pengiriman data dari client ke server dapat diketahui dengan menghitung selisih antara waktu pengiriman HTTP request oleh client dan waktu pengiriman respons oleh server. Berdasarkan data yang diperoleh, server mengirimkan respons pada detik ke 3,955688, sedangkan client mengirimkan request pada detik ke 4,846969. 
 
 Selisih waktu tersebut dapat dihitung sebagai berikut:  
@@ -78,7 +78,7 @@ Selisih waktu tersebut dapat dihitung sebagai berikut:
 <br>
 <br>
 ## Deskripsi gambar pada slide 
-![App Screenshot](Assets/no6.png)<br>
+![App Screenshot](Assets/no7.png)<br>
 
 &nbsp;&nbsp; Gambar di atas adalah *Types of Data Deliveries* dan menjelaskan bagaimana data dikirim dari satu perangkat ke perangkat lain melalui jaringan. Ada tiga jenis pengiriman data yang ditunjukkan berdasarkan lapisan dalam model OSI:
 
