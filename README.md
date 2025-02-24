@@ -57,7 +57,7 @@ Berapa waktu dari client mengirimkan HTTP request?
 
 **Jawaban:** <br>
 ![App Screenshot](Assets/no4.png)<br><br>
-&nbsp;&nbsp; Permintaan HTTP dari client dikirimkan pada waktu 0,911310 detik. Proses ini menandai awal komunikasi antara client dan server dalam pertukaran data.
+&nbsp;&nbsp; Permintaan HTTP dari client dikirimkan pada waktu 24.828253 detik. Proses ini menandai awal komunikasi antara client dan server dalam pertukaran data.
 <br>
 <br>
 <br>
@@ -69,10 +69,10 @@ Berapa Waktu dari server mengirimkan server? dan berapa durasinya?
 **Jawaban:** <br>
 ![App Screenshot](Assets/no5.png)<br>
 ![App Screenshot](Assets/no6.png)<br><br>
-&nbsp;&nbsp; Proses pengiriman data dari client ke server dapat diketahui dengan menghitung selisih antara waktu pengiriman HTTP request oleh client dan waktu pengiriman respons oleh server. Berdasarkan data yang diperoleh, server mengirimkan respons pada detik ke 3,955688, sedangkan client mengirimkan request pada detik ke 4,846969. 
+&nbsp;&nbsp; Proses pengiriman data dari client ke server dapat diketahui dengan menghitung selisih antara waktu pengiriman HTTP request oleh client dan waktu pengiriman respons oleh server. Berdasarkan data yang diperoleh, server mengirimkan respons pada detik ke 25.185381, sedangkan client mengirimkan request pada detik ke 25.209241. 
 
 Selisih waktu tersebut dapat dihitung sebagai berikut:  
-4,846969 - 3,955688 = 0,891281  
+25.209241 - 25.18538 = 0.023861 
 
 &nbsp;&nbsp; Dengan demikian, diperlukan waktu sekitar 0,891281 detik untuk menyelesaikan satu siklus pengiriman dan penerimaan data dalam bentuk HTTP Response. Durasi ini mencerminkan efisiensi komunikasi antara client dan server, yang dapat bervariasi tergantung pada kondisi jaringan dan performa server.
 <br>
