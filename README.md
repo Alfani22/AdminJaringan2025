@@ -34,7 +34,7 @@ Berapa versi HTTP yang digunakan?
 **Jawaban:** <br>
 ![App Screenshot](Assets/no1.png)
 ![App Screenshot](Assets/no1a.png)<br>
-&nbsp;&nbsp; Dari hasil Follow TCP Stream, terlihat bahwa request dan response yang digunakan mengikuti protokol HTTP versi 1.1. Ini menunjukkan bahwa komunikasi antara client dan server berlangsung menggunakan HTTP/1.1.
+&nbsp;&nbsp; Versi HTTP yang digunakan adalah HTTP/1.1, seperti yang terlihat dari request dan response dalam hasil Follow TCP Stream.
 <br>
 <br>
 <br>
