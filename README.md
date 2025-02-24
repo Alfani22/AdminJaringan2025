@@ -46,7 +46,7 @@ Berapa IP address dari client maupun server?
 **Jawaban:** <br>
 ![App Screenshot](Assets/no2.png)<br>
 ![App Screenshot](Assets/no3.png)<br><br>
-&nbsp;&nbsp; Alamat IP yang digunakan oleh HTTP Client adalah **145.254.160.237**, sedangkan HTTP Server memiliki alamat IP **65.208.228.223**. Koneksi antara keduanya memungkinkan pertukaran data melalui protokol HTTP untuk keperluan pengiriman dan penerimaan informasi.
+&nbsp;&nbsp; Alamat IP yang digunakan oleh HTTP Client adalah **192.168.1.109**, sedangkan HTTP Server memiliki alamat IP **128.119.245.12**. Koneksi antara keduanya memungkinkan pertukaran data melalui protokol HTTP untuk keperluan pengiriman dan penerimaan informasi.
 <br>
 <br>
 <br>
