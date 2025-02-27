@@ -46,7 +46,7 @@ Berapa IP address dari client maupun server?
 **Jawaban:** <br>
 ![App Screenshot](Assets/no2.jpg)<br>
 ![App Screenshot](Assets/no3.jpg)<br><br>
-&nbsp;&nbsp; Alamat IP yang digunakan oleh HTTP Client adalah **192.168.1.109**, sedangkan HTTP Server memiliki alamat IP **128.119.245.12**. Koneksi antara keduanya memungkinkan pertukaran data melalui protokol HTTP untuk keperluan pengiriman dan penerimaan informasi.
+&nbsp;&nbsp;  Alamat IP yang digunakan oleh HTTP Client adalah 145.254.160.237, sedangkan HTTP Server memiliki alamat IP 65.208.228.223. Koneksi antara keduanya memungkinkan pertukaran data melalui protokol HTTP untuk keperluan pengiriman dan penerimaan informasi.
 <br>
 <br>
 <br>
@@ -57,7 +57,7 @@ Berapa waktu dari client mengirimkan HTTP request?
 
 **Jawaban:** <br>
 ![App Screenshot](Assets/no4.jpg)<br><br>
-&nbsp;&nbsp; Permintaan HTTP dari client dikirimkan pada waktu 24.828253 detik. Proses ini menandai awal komunikasi antara client dan server dalam pertukaran data.
+&nbsp;&nbsp;  Permintaan HTTP dari client dikirimkan pada waktu 0,911310 detik. Proses ini menandai awal komunikasi antara client dan server dalam pertukaran data. 
 <br>
 <br>
 <br>
@@ -69,12 +69,12 @@ Berapa Waktu dari server mengirimkan server? dan berapa durasinya?
 **Jawaban:** <br>
 ![App Screenshot](Assets/no5.jpg)<br>
 ![App Screenshot](Assets/no6.jpg)<br><br>
-&nbsp;&nbsp; Proses pengiriman data dari client ke server dapat diketahui dengan menghitung selisih antara waktu pengiriman HTTP request oleh client dan waktu pengiriman respons oleh server. Berdasarkan data yang diperoleh, server mengirimkan respons pada detik ke 25.185381, sedangkan client mengirimkan request pada detik ke 25.209241. 
+&nbsp;&nbsp; Proses pengiriman data dari client ke server dapat diketahui dengan menghitung selisih antara waktu pengiriman HTTP request oleh client dan waktu pengiriman respons oleh server. Berdasarkan data yang diperoleh, server mengirimkan respons pada detik ke 3,955688, sedangkan client mengirimkan request pada detik ke 4,846969.
 
-Selisih waktu tersebut dapat dihitung sebagai berikut:  
-25.209241 - 25.18538 = 0.023861 
+Selisih waktu tersebut dapat dihitung sebagai berikut:
+4,846969 - 3,955688 = 0,891281
 
-&nbsp;&nbsp; Dengan demikian, diperlukan waktu sekitar 0,891281 detik untuk menyelesaikan satu siklus pengiriman dan penerimaan data dalam bentuk HTTP Response. Durasi ini mencerminkan efisiensi komunikasi antara client dan server, yang dapat bervariasi tergantung pada kondisi jaringan dan performa server.
+   Dengan demikian, diperlukan waktu sekitar 0,891281 detik untuk menyelesaikan satu siklus pengiriman dan penerimaan data dalam bentuk HTTP Response. Durasi ini mencerminkan efisiensi komunikasi antara client dan server, yang dapat bervariasi tergantung pada kondisi jaringan dan performa server. 
 <br>
 <br>
 <br>
