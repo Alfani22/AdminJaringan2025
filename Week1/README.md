@@ -129,21 +129,21 @@ Node-to-node data transmission adalah proses pengiriman data antara dua perangka
 &nbsp;&nbsp; Transmission Control Protocol (TCP) adalah protokol komunikasi yang memastikan pengiriman data yang andal antara perangkat dalam jaringan. Proses komunikasi menggunakan TCP terdiri dari tiga tahapan utama:
 
 Tahapan Komunikasi Menggunakan TCP
-### Three-Way Handshake (Inisialisasi Koneksi)
+1. Three-Way Handshake (Inisialisasi Koneksi)
 -Pengirim mengirimkan SYN ke penerima untuk memulai koneksi.
 -Penerima merespons dengan SYN-ACK sebagai tanda persetujuan.
 -Pengirim mengonfirmasi dengan ACK, koneksi terbentuk.
 
-### Data Transmission (Pengiriman Data)
+2. Data Transmission (Pengiriman Data)
 -Data dikirim dalam bentuk segmen dengan sequence number.
 -Penerima mengirimkan ACK untuk setiap segmen yang diterima dengan benar.
 -Jika ada segmen yang hilang atau rusak, penerima meminta pengiriman ulang.
 
-### Flow Control & Error Handling (Pengendalian Aliran & Kesalahan)
+3. Flow Control & Error Handling (Pengendalian Aliran & Kesalahan)
 -Sliding Window Protocol digunakan untuk mengontrol jumlah data yang dikirim tanpa menunggu ACK.
 -Jika penerima sibuk, ia dapat mengirim Window Size=0 untuk meminta pengirim berhenti sementara.
 
-### Four-Way Handshake (Terminasi Koneksi)
+4. Four-Way Handshake (Terminasi Koneksi)
 -Pengirim mengirim FIN untuk memulai pemutusan koneksi.
 -Penerima merespons dengan ACK, lalu mengirim FIN.
 -Pengirim membalas dengan ACK, koneksi resmi ditutup.
