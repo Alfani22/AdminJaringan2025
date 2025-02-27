@@ -151,11 +151,11 @@ Tahapan Komunikasi Menggunakan TCP
 <br>
 
 ## Referensi
-[Pekoktenan - Host-to-Host Layer](https://pekoktenan.wordpress.com/2009/04/02/host-to-host-layer/comment-page-1/)
-[YouTube/PowerCert Animated Videos - TCP/IP and OSI Model Explained](https://www.youtube.com/watch?v=5o8CwafCxnU)
-[YouTube/Network Direction - TCP 3-Way Handshake](https://www.youtube.com/watch?v=xMtP5ZB3wSk)
-[LearnCisco - Host-to-Host Communications](https://www.learncisco.net/courses/icnd-1/building-a-network/host-to-host-communications.html)
-[Cisco - Using Cisco IOS Software](http://cisco.com/E-Learning/bulk/public/tac/cim/cib/using_cisco_ios_software/linked/tcpip.htm)
-[Practical Networking - Packet Traveling: Host-to-Host](http://practicalnetworking.net/series/packet-traveling/host-to-host/)
-[Imperva - OSI Model: Data Link Layer](https://www.imperva.com/learn/application-security/osi-model/)
-[Antaira - The OSI Model Layers Explained](https://www.antaira.com/Blog-The-OSI-Model-Layers-Explained)
+-[Pekoktenan - Host-to-Host Layer](https://pekoktenan.wordpress.com/2009/04/02/host-to-host-layer/comment-page-1/)
+-[YouTube/PowerCert Animated Videos - TCP/IP and OSI Model Explained](https://www.youtube.com/watch?v=5o8CwafCxnU)
+-[YouTube/Network Direction - TCP 3-Way Handshake](https://www.youtube.com/watch?v=xMtP5ZB3wSk)
+-[LearnCisco - Host-to-Host Communications](https://www.learncisco.net/courses/icnd-1/building-a-network/host-to-host-communications.html)
+-[Cisco - Using Cisco IOS Software](http://cisco.com/E-Learning/bulk/public/tac/cim/cib/using_cisco_ios_software/linked/tcpip.htm)
+-[Practical Networking - Packet Traveling: Host-to-Host](http://practicalnetworking.net/series/packet-traveling/host-to-host/)
+-[Imperva - OSI Model: Data Link Layer](https://www.imperva.com/learn/application-security/osi-model/)
+-[Antaira - The OSI Model Layers Explained](https://www.antaira.com/Blog-The-OSI-Model-Layers-Explained)
