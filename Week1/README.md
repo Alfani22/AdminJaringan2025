@@ -151,7 +151,7 @@ Tahapan Komunikasi Menggunakan TCP
 <br>
 
 ## Referensi
-[Pekoktenan - Host-to-Host Layer]
+[Pekoktenan - Host-to-Host Layer] (https://pekoktenan.wordpress.com/2009/04/02/host-to-host-layer/comment-page-1/)
 [YouTube/PowerCert Animated Videos - TCP/IP and OSI Model Explained]
 [YouTube/Network Direction - TCP 3-Way Handshake]
 [LearnCisco - Host-to-Host Communications]
