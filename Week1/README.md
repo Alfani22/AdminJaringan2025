@@ -84,16 +84,37 @@ Selisih waktu tersebut dapat dihitung sebagai berikut:
 &nbsp;&nbsp; Gambar di atas adalah *Types of Data Deliveries* dan menjelaskan bagaimana data dikirim dari satu perangkat ke perangkat lain melalui jaringan. Ada tiga jenis pengiriman data yang ditunjukkan berdasarkan lapisan dalam model OSI:
 
 1. **Node to Node (Data Link Layer)**  
-   - Ini adalah komunikasi antara perangkat yang terhubung secara fisik, seperti antara komputer dan router, atau antar-router.  
-   - Setiap segmen komunikasi di jaringan ditangani oleh lapisan data link, yang memastikan frame data dikirim dengan benar dari satu node ke node berikutnya.  
-   - Dalam gambar, jalur *Node to Node* digambarkan dengan koneksi pendek antara setiap perangkat jaringan (router).
+Node-to-node data transmission adalah proses pengiriman data antara dua perangkat (node) yang langsung terhubung dalam jaringan. Node-to-node data transmission dalam Data Link Layer terdiri dari beberapa layanan utama:
 
-2. **Host to Host (Network Layer)**  
-   - Ini mencakup komunikasi antara dua perangkat ujung (end-to-end), seperti dari komputer pengirim ke komputer penerima melalui jaringan internet.  
-   - Lapisan network bertanggung jawab untuk mengirimkan paket data melalui beberapa node di sepanjang jalur komunikasi.  
-   - Pada gambar, *Host to Host* mencakup keseluruhan koneksi dari komputer pengirim ke komputer penerima.
+a) Layanan Unacknowledged Connectionless
+Data dikirimkan dari node sumber ke node tujuan tanpa konfirmasi penerimaan. Cocok untuk jaringan yang andal dan tidak memerlukan pengiriman ulang frame yang hilang.
 
-3. **Process to Process (Transport Layer)**  
+b)Layanan Acknowledged Connectionless
+Setiap frame yang dikirimkan harus dikonfirmasi penerimaannya. Jika tidak ada konfirmasi dalam waktu tertentu, frame akan dikirim ulang. Berguna untuk saluran komunikasi yang tidak terlalu andal, seperti jaringan nirkabel.
+
+c)Layanan Acknowledged Connection-Oriented
+Membutuhkan proses tiga tahap: pembentukan koneksi, transmisi data, dan pelepasan koneksi. Menjamin setiap frame diterima hanya satu kali dan dalam urutan yang benar. Cocok untuk jaringan yang membutuhkan transmisi data yang lebih andal​
+
+3. **Host to Host (Network Layer)**  
+   Host-to-Host Communication adalah proses komunikasi antara dua perangkat dalam jaringan yang terjadi di Network Layer dan Transport Layer.
+
+Cara Kerja Host-to-Host Communication:
+-Inisiasi Koneksi:
+    TCP (berorientasi koneksi): Menggunakan three-way handshake untuk membentuk koneksi sebelum data dikirim.
+    UDP (tanpa koneksi): Data dikirim langsung tanpa proses handshake.
+
+-Transmisi Data:
+    Data dikemas dalam segmen dan dikirim melalui jaringan menggunakan alamat IP dan port.
+
+-Pengendalian Aliran & Kesalahan:
+    Flow Control: Mencegah pengiriman data yang terlalu cepat.
+    Error Control: Menggunakan metode seperti checksum untuk mendeteksi dan memperbaiki kesalahan.
+
+-Terminasi Koneksi:
+    TCP: Menggunakan four-way handshake untuk menutup koneksi.
+    UDP: Tidak memerlukan terminasi khusus.
+
+4. **Process to Process (Transport Layer)**  
    - Jenis pengiriman ini terjadi di lapisan transport, di mana data dikirim langsung dari proses aplikasi di satu host ke proses aplikasi di host lain.  
    - Contohnya adalah pengiriman file dari aplikasi di satu komputer ke aplikasi di komputer lain melalui protokol seperti TCP atau UDP.  
    - Jalur *Process to Process* dalam gambar ditunjukkan sebagai koneksi logis yang melintasi seluruh jalur komunikasi.
