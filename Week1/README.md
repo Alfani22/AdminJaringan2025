@@ -86,38 +86,41 @@ Selisih waktu tersebut dapat dihitung sebagai berikut:
 1. **Node to Node (Data Link Layer)**  
 Node-to-node data transmission adalah proses pengiriman data antara dua perangkat (node) yang langsung terhubung dalam jaringan. Node-to-node data transmission dalam Data Link Layer terdiri dari beberapa layanan utama:
 
-a) Layanan Unacknowledged Connectionless
-Data dikirimkan dari node sumber ke node tujuan tanpa konfirmasi penerimaan. Cocok untuk jaringan yang andal dan tidak memerlukan pengiriman ulang frame yang hilang.
+    a) Layanan Unacknowledged Connectionless
+    Data dikirimkan dari node sumber ke node tujuan tanpa konfirmasi penerimaan. Cocok untuk jaringan yang andal dan tidak memerlukan pengiriman        ulang frame yang hilang.
 
-b)Layanan Acknowledged Connectionless
-Setiap frame yang dikirimkan harus dikonfirmasi penerimaannya. Jika tidak ada konfirmasi dalam waktu tertentu, frame akan dikirim ulang. Berguna untuk saluran komunikasi yang tidak terlalu andal, seperti jaringan nirkabel.
+    b)Layanan Acknowledged Connectionless
+    Setiap frame yang dikirimkan harus dikonfirmasi penerimaannya. Jika tidak ada konfirmasi dalam waktu tertentu, frame akan dikirim ulang.            Berguna untuk saluran komunikasi yang tidak terlalu andal, seperti jaringan nirkabel.
 
-c)Layanan Acknowledged Connection-Oriented
-Membutuhkan proses tiga tahap: pembentukan koneksi, transmisi data, dan pelepasan koneksi. Menjamin setiap frame diterima hanya satu kali dan dalam urutan yang benar. Cocok untuk jaringan yang membutuhkan transmisi data yang lebih andal​
+    c)Layanan Acknowledged Connection-Oriented
+    Membutuhkan proses tiga tahap: pembentukan koneksi, transmisi data, dan pelepasan koneksi. Menjamin setiap frame diterima hanya satu kali dan       dalam urutan yang benar. Cocok untuk jaringan yang membutuhkan transmisi data yang lebih andal​
 
-3. **Host to Host (Network Layer)**  
+2. **Host to Host (Network Layer)**  
    Host-to-Host Communication adalah proses komunikasi antara dua perangkat dalam jaringan yang terjadi di Network Layer dan Transport Layer.
 
-Cara Kerja Host-to-Host Communication:
--Inisiasi Koneksi:
-    TCP (berorientasi koneksi): Menggunakan three-way handshake untuk membentuk koneksi sebelum data dikirim.
-    UDP (tanpa koneksi): Data dikirim langsung tanpa proses handshake.
+    Cara Kerja Host-to-Host Communication:
+    -Inisiasi Koneksi:
+       TCP (berorientasi koneksi): Menggunakan three-way handshake untuk membentuk koneksi sebelum data dikirim.
+        UDP (tanpa koneksi): Data dikirim langsung tanpa proses handshake.
 
--Transmisi Data:
-    Data dikemas dalam segmen dan dikirim melalui jaringan menggunakan alamat IP dan port.
+    -Transmisi Data:
+        Data dikemas dalam segmen dan dikirim melalui jaringan menggunakan alamat IP dan port.
 
--Pengendalian Aliran & Kesalahan:
-    Flow Control: Mencegah pengiriman data yang terlalu cepat.
-    Error Control: Menggunakan metode seperti checksum untuk mendeteksi dan memperbaiki kesalahan.
+   -Pengendalian Aliran & Kesalahan:
+        Flow Control: Mencegah pengiriman data yang terlalu cepat.
+        Error Control: Menggunakan metode seperti checksum untuk mendeteksi dan memperbaiki kesalahan.
 
--Terminasi Koneksi:
-    TCP: Menggunakan four-way handshake untuk menutup koneksi.
-    UDP: Tidak memerlukan terminasi khusus.
+    -Terminasi Koneksi:
+        TCP: Menggunakan four-way handshake untuk menutup koneksi.
+        UDP: Tidak memerlukan terminasi khusus.
 
-4. **Process to Process (Transport Layer)**  
-   - Jenis pengiriman ini terjadi di lapisan transport, di mana data dikirim langsung dari proses aplikasi di satu host ke proses aplikasi di host lain.  
-   - Contohnya adalah pengiriman file dari aplikasi di satu komputer ke aplikasi di komputer lain melalui protokol seperti TCP atau UDP.  
-   - Jalur *Process to Process* dalam gambar ditunjukkan sebagai koneksi logis yang melintasi seluruh jalur komunikasi.
+3. **Process to Process (Transport Layer)**  
+   Process-to-Process Communication di Transport Layer memungkinkan aplikasi di dua host berbeda bertukar data menggunakan port number.
+        -Identifikasi Proses: Setiap aplikasi diberi nomor port unik untuk memastikan data sampai ke tujuan yang benar.
+        -Multiplexing & Demultiplexing: Memungkinkan banyak aplikasi berbagi koneksi dan menerima data sesuai dengan portnya.
+        -Protokol Transport:
+            TCP: Andalan, berorientasi koneksi, menjamin urutan dan keandalan data.
+            UDP: Cepat, tanpa koneksi, cocok untuk streaming dan game online.
 <br>
 <br>
 <br>
@@ -125,28 +128,35 @@ Cara Kerja Host-to-Host Communication:
 ## Rangkuman tahapan komunikasi menggunakan TCP
 &nbsp;&nbsp; Transmission Control Protocol (TCP) adalah protokol komunikasi yang memastikan pengiriman data yang andal antara perangkat dalam jaringan. Proses komunikasi menggunakan TCP terdiri dari tiga tahapan utama:
 
-### 1. Pembentukan Koneksi (Connection Establishment)
-Tahap ini dikenal sebagai three-way handshake, yang melibatkan langkah-langkah berikut:
-- **SYN:** Klien menginisiasi koneksi dengan mengirimkan segmen SYN (synchronize) ke server, menetapkan nomor urut awal.
-- **SYN-ACK:** Server menerima SYN dan merespons dengan segmen SYN-ACK (synchronize-acknowledge), mengonfirmasi penerimaan dan menyediakan nomor urutnya sendiri.
-- **ACK:** Klien mengirimkan segmen ACK (acknowledge) terakhir, mengonfirmasi penerimaan SYN-ACK dari server.
+Tahapan Komunikasi Menggunakan TCP
+### Three-Way Handshake (Inisialisasi Koneksi)
+-Pengirim mengirimkan SYN ke penerima untuk memulai koneksi.
+-Penerima merespons dengan SYN-ACK sebagai tanda persetujuan.
+-Pengirim mengonfirmasi dengan ACK, koneksi terbentuk.
 
-### 2. Transfer Data (Data Transfer)
-Setelah koneksi terbentuk, data dapat ditransfer antara klien dan server. TCP memastikan bahwa:
-- Data dikirim dalam urutan yang benar.
-- Segmen yang hilang atau rusak akan dikirim ulang.
-- Kontrol aliran diterapkan untuk mencegah pengirim mengirim data lebih cepat daripada yang dapat diterima oleh penerima.
+### Data Transmission (Pengiriman Data)
+-Data dikirim dalam bentuk segmen dengan sequence number.
+-Penerima mengirimkan ACK untuk setiap segmen yang diterima dengan benar.
+-Jika ada segmen yang hilang atau rusak, penerima meminta pengiriman ulang.
 
-### 3. Terminasi Koneksi (Connection Termination)
-Setelah transfer data selesai, koneksi ditutup untuk membebaskan sumber daya. Proses ini biasanya melibatkan:
-- Salah satu pihak mengirimkan segmen FIN (finish) untuk mengindikasikan bahwa tidak ada lagi data yang akan dikirim.
-- Pihak lain merespons dengan ACK untuk mengonfirmasi penerimaan FIN.
+### Flow Control & Error Handling (Pengendalian Aliran & Kesalahan)
+-Sliding Window Protocol digunakan untuk mengontrol jumlah data yang dikirim tanpa menunggu ACK.
+-Jika penerima sibuk, ia dapat mengirim Window Size=0 untuk meminta pengirim berhenti sementara.
+
+### Four-Way Handshake (Terminasi Koneksi)
+-Pengirim mengirim FIN untuk memulai pemutusan koneksi.
+-Penerima merespons dengan ACK, lalu mengirim FIN.
+-Pengirim membalas dengan ACK, koneksi resmi ditutup.
 <br>
 <br>
 
 ## Referensi
-
-- [Geeks for Geeks - Transmission Control Protocol](https://www.geeksforgeeks.org/benefits-of-multithreading-in-operating-system/)
-- [Wikipedia - Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)
-- [UNIVERSITAS KRISNADWIPAYANA
-FAKULTAS TEKNIK - ADMINISTRASI JARINGAN](https://repository.unkris.ac.id/id/eprint/34/1/administrasi-jaringan.pdf).
+Pekoktenan - Host-to-Host Layer
+YouTube/PowerCert Animated Videos - TCP/IP and OSI Model Explained
+YouTube/Network Direction - TCP 3-Way Handshake
+LearnCisco - Host-to-Host Communications
+Cisco - Using Cisco IOS Software
+Practical Networking - Packet Traveling: Host-to-Host
+Cisco - The OSI Model Layers Explained
+Imperva - OSI Model: Data Link Layer
+Antaira - The OSI Model Layers Explained
