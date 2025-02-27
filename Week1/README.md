@@ -151,12 +151,12 @@ Tahapan Komunikasi Menggunakan TCP
 <br>
 
 ## Referensi
-Pekoktenan - Host-to-Host Layer
-YouTube/PowerCert Animated Videos - TCP/IP and OSI Model Explained
-YouTube/Network Direction - TCP 3-Way Handshake
-LearnCisco - Host-to-Host Communications
-Cisco - Using Cisco IOS Software
-Practical Networking - Packet Traveling: Host-to-Host
-Cisco - The OSI Model Layers Explained
-Imperva - OSI Model: Data Link Layer
-Antaira - The OSI Model Layers Explained
+[Pekoktenan - Host-to-Host Layer]
+[YouTube/PowerCert Animated Videos - TCP/IP and OSI Model Explained]
+[YouTube/Network Direction - TCP 3-Way Handshake]
+[LearnCisco - Host-to-Host Communications]
+[Cisco - Using Cisco IOS Software]
+[Practical Networking - Packet Traveling: Host-to-Host]
+[Cisco - The OSI Model Layers Explained]
+[Imperva - OSI Model: Data Link Layer]
+[Antaira - The OSI Model Layers Explained]
