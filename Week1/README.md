@@ -4,7 +4,7 @@
 </div>
 <br />
 <div align="center">
-    <img src="Assets/Logo_PENS.png" alt="Logo PENS">
+    <img src="Assets/Logo_PENS.jng" alt="Logo PENS">
     <h3 style="text-align: center;">Disusun Oleh : </h3>
     <p style="text-align: center;">
         <strong>Marieta Nona Alfani</strong><br>
@@ -32,8 +32,8 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 Berapa versi HTTP yang digunakan?
 
 **Jawaban:** <br>
-![App Screenshot](Assets/no1.png)
-![App Screenshot](Assets/no1a.png)<br>
+![App Screenshot](Assets/no1.jng)
+![App Screenshot](Assets/no1a.jng)<br>
 &nbsp;&nbsp; Versi HTTP yang digunakan adalah HTTP/1.1, seperti yang terlihat dari request dan response dalam hasil Follow TCP Stream.
 <br>
 <br>
@@ -44,8 +44,8 @@ Berapa versi HTTP yang digunakan?
 Berapa IP address dari client maupun server?
 
 **Jawaban:** <br>
-![App Screenshot](Assets/no2.png)<br>
-![App Screenshot](Assets/no3.png)<br><br>
+![App Screenshot](Assets/no2.jng)<br>
+![App Screenshot](Assets/no3.jng)<br><br>
 &nbsp;&nbsp; Alamat IP yang digunakan oleh HTTP Client adalah **192.168.1.109**, sedangkan HTTP Server memiliki alamat IP **128.119.245.12**. Koneksi antara keduanya memungkinkan pertukaran data melalui protokol HTTP untuk keperluan pengiriman dan penerimaan informasi.
 <br>
 <br>
@@ -56,7 +56,7 @@ Berapa IP address dari client maupun server?
 Berapa waktu dari client mengirimkan HTTP request?
 
 **Jawaban:** <br>
-![App Screenshot](Assets/no4.png)<br><br>
+![App Screenshot](Assets/no4.jng)<br><br>
 &nbsp;&nbsp; Permintaan HTTP dari client dikirimkan pada waktu 24.828253 detik. Proses ini menandai awal komunikasi antara client dan server dalam pertukaran data.
 <br>
 <br>
@@ -67,8 +67,8 @@ Berapa waktu dari client mengirimkan HTTP request?
 Berapa Waktu dari server mengirimkan server? dan berapa durasinya?
 
 **Jawaban:** <br>
-![App Screenshot](Assets/no5.png)<br>
-![App Screenshot](Assets/no6.png)<br><br>
+![App Screenshot](Assets/no5.jng)<br>
+![App Screenshot](Assets/no6.jng)<br><br>
 &nbsp;&nbsp; Proses pengiriman data dari client ke server dapat diketahui dengan menghitung selisih antara waktu pengiriman HTTP request oleh client dan waktu pengiriman respons oleh server. Berdasarkan data yang diperoleh, server mengirimkan respons pada detik ke 25.185381, sedangkan client mengirimkan request pada detik ke 25.209241. 
 
 Selisih waktu tersebut dapat dihitung sebagai berikut:  
