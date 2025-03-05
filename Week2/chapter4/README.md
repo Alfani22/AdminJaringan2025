@@ -5,7 +5,7 @@
 </div>
 <br />
 <div align="center">
-  ![Logo PENS](https://github.com/Alfani22/AdminJaringan2025/blob/main/Week2/instalasi_debian/assets/Logo_PENS.png)
+    <img src="images/Logo_PENS.png" alt="Logo PENS">
     <h3 style="text-align: center;">Disusun Oleh :</h3>
     <p style="text-align: center;">
         <strong>Marieta Nona Alfani (3123500025)</strong>
