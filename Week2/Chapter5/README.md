@@ -44,6 +44,7 @@ Beberapa sistem file yang umum digunakan:
 - **ISO 9660** – Untuk CD/DVD.
 
 💡 **Cek Sistem File yang Digunakan:**
+<img src="images/kd.jpg" alt="kd">
 ```bash
 df -T
 ```
@@ -56,6 +57,7 @@ Pathname adalah alamat file dalam sistem file, yang terbagi menjadi:
 - **Path Relatif** → Contoh: `./file.txt`
 
 💡 **Cek Path Absolut:**
+<img src="images/pwd.jpg" alt="pw">
 ```bash
 pwd
 ```
@@ -65,12 +67,14 @@ pwd
 ## Mounting dan Unmounting Filesystem
 ### Mounting Filesystem
 Menambahkan partisi ke dalam sistem:
+<img src="images/mount.jpg" alt="m">
 ```bash
 mount /dev/sda4 /mnt
 ```
 
 ### Unmounting Filesystem
 Melepaskan partisi dari sistem:
+<img src="images/mnt.jpg" alt="mnt">
 ```bash
 umount /mnt
 ```
@@ -91,6 +95,7 @@ Struktur file tree memiliki beberapa direktori utama:
 - `/var` – Log dan data aplikasi yang sering berubah.
 
 💡 **Cek Isi Direktori `/etc`:**
+<img src="images/ls.jpg" alt="ls">
 ```bash
 ls -l /etc
 ```
@@ -108,6 +113,7 @@ Jenis-jenis file pada Unix/Linux:
 7. **Symbolic links** – Tautan ke file lain.
 
 💡 **Cek Jenis File:**
+<img src="images/file.jpg" alt="file">
 ```bash
 file /bin/bash
 ```
