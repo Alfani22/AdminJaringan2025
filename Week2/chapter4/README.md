@@ -15,15 +15,15 @@
 </div>
 <br>
 
-# Chapter 4: Process Control
+## Chapter 4: Process Control
 
 <img src="images/c41.png" alt="Proces Control">
 
-# Komponen Proses
+## Komponen Proses
 
 Sebuah proses terdiri dari **ruang alamat** dan **struktur data dalam kernel**. Ruang alamat adalah sekumpulan halaman memori yang digunakan untuk menyimpan kode, data, dan stack proses. Kernel menggunakan struktur data internal untuk melacak status, prioritas, serta parameter penjadwalan proses.
 
-## Sumber Daya Proses
+# Sumber Daya Proses
 Proses dapat dianggap sebagai wadah yang mengelola berbagai sumber daya, seperti:
 - Halaman memori untuk kode dan data  
 - Deskriptor file untuk file yang terbuka  
@@ -56,11 +56,11 @@ Dalam server web, satu proses menangani banyak permintaan dengan membuat thread 
 
 ## Siklus Hidup Proses
 
-### Pembuatan Proses
+# Pembuatan Proses
 - Proses baru dibuat menggunakan **fork**, yang membuat salinan identik dari proses induk dengan PID berbeda.
 - Linux menggunakan **clone**, yang merupakan versi lebih canggih dari fork, menangani thread dan fitur tambahan.
 
-### Proses Sistem
+# Proses Sistem
 - Saat sistem **booting**, kernel secara otomatis menciptakan beberapa proses, termasuk **init** atau **systemd** (PID 1).
 - Proses ini menjalankan skrip startup sistem dan menjadi induk dari semua proses lain, kecuali yang dibuat langsung oleh kernel.
 
@@ -75,7 +75,7 @@ Sinyal adalah mekanisme untuk memberi notifikasi ke suatu proses saat terjadi su
 - **Kernel memberi notifikasi** tentang kondisi tertentu, misalnya proses anak yang selesai atau data yang tersedia pada saluran I/O
 ![Signals](https://liujunming.top/images/2018/12/71.png)
 
-### Jenis Sinyal dalam Proses
+# Jenis Sinyal dalam Proses
 Meskipun beberapa sinyal terdengar mirip, masing-masing memiliki fungsi berbeda:
 
 - **KILL (SIGKILL):**
@@ -98,6 +98,8 @@ Meskipun beberapa sinyal terdengar mirip, masing-masing memiliki fungsi berbeda:
   - Mirip dengan SIGTERM, tetapi jika tidak ditangani, akan menghasilkan core dump
   - Beberapa program menggunakannya dengan makna khusus
 
+Percobaan
+ <img src="images/kill.jpg" alt="kill">
 1. **Menjalankan proses `sleep` di latar belakang**  
    - User menjalankan tiga proses `sleep 1000 &`, dengan PID:  
      - 4349  
@@ -121,7 +123,7 @@ Meskipun beberapa sinyal terdengar mirip, masing-masing memiliki fungsi berbeda:
 6. **Memverifikasi proses setelah `kill` commands**  
    - `ps aux | grep sleep` menunjukkan bahwa tidak ada lagi proses `sleep` yang berjalan, hanya proses `grep sleep` yang muncul.  
 
-### **Kesimpulan**  
+# Kesimpulan  
 User berhasil menguji perintah `kill`, `killall`, dan `pkill` untuk menghentikan proses `sleep`.
 
 - **`kill`** digunakan untuk menghentikan satu proses berdasarkan PID.  
@@ -129,13 +131,13 @@ User berhasil menguji perintah `kill`, `killall`, dan `pkill` untuk menghentikan
 - **`pkill`** juga menghentikan proses berdasarkan nama tetapi lebih fleksibel dengan opsi tambahan.
 
 ## **Perintah Monitoring Proses (`ps`, `pgrep`, `pidof`)**
-### **`ps aux`**
+# **`ps aux`**
 Menampilkan semua proses yang berjalan di sistem.
 - `a` → Menampilkan proses dari semua pengguna.
 - `u` → Menampilkan informasi detail proses.
 - `x` → Menampilkan proses yang tidak terkait dengan terminal.
 
-**Contoh:**  
+Contoh: 
 ```bash
 ps aux | head -8
 ```
@@ -159,6 +161,10 @@ ps aux | grep -v grep | grep firefox
 pgrep firefox
 pidof /usr/bin/firefox
 ```
+# Percobaan (`ps`, `pgrep`, `pidof`)
+<img src="images/ps.jpg" alt="ps">
+<img src="images/ps2.jpg" alt="ps2">
+
 ## Monitoring Interaktif dengan `top` dan `htop`
 ### 1. `top` – Monitoring Proses Secara Real-Time
 - Menampilkan informasi seperti:
@@ -173,6 +179,8 @@ pidof /usr/bin/firefox
   - `r` → Mengubah prioritas proses (nice value).
   - `M` → Mengurutkan berdasarkan penggunaan memori.
   - `P` → Mengurutkan berdasarkan penggunaan CPU.
+# percobaan
+<img src="images/top.jpg" alt="top">
 
 ### 2. `htop` – Alternatif `top` dengan Tampilan Lebih Interaktif
 - Menampilkan full command line dari setiap proses.
@@ -180,22 +188,26 @@ pidof /usr/bin/firefox
 - Menampilkan penggunaan CPU dan memori dalam bentuk grafik bar.
 - Contoh penggunaan: `htop`
 
+### percobaan
+<img src="images/htop.jpg" alt="htop">
+
 ### Kesimpulan
 - Gunakan `top` untuk monitoring default yang tersedia di semua sistem Linux.
 - Gunakan `htop` jika ingin tampilan yang lebih interaktif dan user-friendly.
 # Mengubah Prioritas Proses dengan `nice` dan `renice`
 
+# Mengubah Prioritas Proses dengan nice dan renice Berdasarkan Percobaan
 ## 1. Apa Itu Niceness?
 Niceness adalah nilai yang menentukan seberapa "ramah" sebuah proses terhadap proses lain dalam persaingan CPU.
 
 - **Niceness tinggi (+19)** → Proses mendapat prioritas rendah (lebih sedikit CPU time).
 - **Niceness rendah (-20)** → Proses mendapat prioritas tinggi (lebih banyak CPU time).
 
-### Rentang Nilai Niceness:
+# Rentang Nilai Niceness:
 - **Linux**: `-20` (prioritas tinggi) hingga `+19` (prioritas rendah).
 - **FreeBSD**: `-20` hingga `+20`.
 
-### Formula:
+# Formula:
 ```plaintext
 priority_value = 20 + nice_value
 ```
@@ -206,15 +218,15 @@ priority_value = 20 + nice_value
 
 ---
 
-## 2. Menggunakan `nice` untuk Menjalankan Proses dengan Prioritas Tertentu
+# 2. Menggunakan `nice` untuk Menjalankan Proses dengan Prioritas Tertentu
 `nice` digunakan untuk memulai proses dengan nilai niceness tertentu.
 
-### Sintaks:
+# Sintaks:
 ```bash
 nice -n [nice_value] [command]
 ```
 
-### Contoh:
+# Contoh:
 Menjalankan `infinite.sh` dengan niceness `10` (prioritas rendah):
 ```bash
 nice -n 10 sh infinite.sh &
@@ -223,29 +235,22 @@ nice -n 10 sh infinite.sh &
 
 ---
 
-## 3. Menggunakan `renice` untuk Mengubah Prioritas Proses yang Sedang Berjalan
+# 3. Menggunakan `renice` untuk Mengubah Prioritas Proses yang Sedang Berjalan
 Jika sebuah proses sudah berjalan, kita bisa mengubah niceness-nya menggunakan `renice`.
 
-### Sintaks:
+# Sintaks:
 ```bash
 renice -n [nice_value] -p [PID]
 ```
 
-### Contoh:
+# Contoh:
 Mengubah niceness proses dengan PID `1234` menjadi `10`:
 ```bash
 renice -n 10 -p 1234
 ```
-
-### Catatan:
-- **Hanya root** yang bisa mengatur nilai niceness negatif (prioritas tinggi).
-- **Pengguna biasa** hanya bisa meningkatkan niceness (menurunkan prioritas).
-
----
-
-## 4. Penjelasan Mengubah Prioritas Proses dengan `nice` dan `renice` Berdasarkan Percobaan
-
-### 1. Menjalankan Proses dengan `nice`
+#4. Penjelasan Mengubah Prioritas Proses dengan `nice` dan `renice` Berdasarkan Percobaan
+# 1. Menjalankan Proses dengan `nice`
+<img src="images/nicevalue.jpg" alt="nice">
 Pada percobaan pertama, dijalankan perintah berikut:
 ```bash
 nice -n 10 sh infinite.sh &
@@ -257,21 +262,22 @@ sh: 0: cannot open infinite.sh: No such file
 ```
 Yang berarti skrip tidak ditemukan atau tidak ada di direktori kerja saat ini.
 
-### 2. Menampilkan PID dan Prioritas Proses
+# 2. Menampilkan PID dan Prioritas Proses
+<img src="images/cekprioritas.jpg" alt="cek">
 Untuk mengecek apakah proses benar-benar berjalan, dilakukan pencarian menggunakan:
 ```bash
 ps -o pid,ni,comm -p 2232
 ```
 Namun, proses dengan PID `2232` sudah tidak ada, yang kemungkinan besar terjadi karena skrip tidak ditemukan dan proses gagal berjalan.
 
-### 3. Mengecek Proses yang Sedang Berjalan
+# 3. Mengecek Proses yang Sedang Berjalan
 Dilakukan pengecekan menggunakan:
 ```bash
 top
 ```
 Dari hasil tampilan `top`, terlihat daftar proses yang sedang berjalan, dengan beberapa PID termasuk `2234` yang menjalankan perintah `top`.
 
-### 4. Mencari Proses `infinite.sh` yang Berjalan
+# 4. Mencari Proses `infinite.sh` yang Berjalan
 Karena `infinite.sh` tidak berjalan sebelumnya, dilakukan pencarian ulang menggunakan:
 ```bash
 ps aux | grep infinite.sh
@@ -284,7 +290,8 @@ ps -o pid,ni,comm -p 2447
 ```
 Namun, hasilnya kosong, yang berarti proses mungkin telah berakhir atau tidak memiliki prioritas yang bisa ditampilkan.
 
-### 5. Mengubah Prioritas dengan `renice`
+# 5. Mengubah Prioritas dengan `renice`
+<img src="images/ubahprioritas.jpg" alt="ubah">
 Dicoba mengubah prioritas proses dengan:
 ```bash
 renice -n 5 -p 2452
@@ -303,14 +310,14 @@ Hasilnya menunjukkan perubahan prioritas dari `0` ke `5`, yang berarti perubahan
 
 ---
 
-## 6. Kesimpulan
+#Kesimpulan
 - `nice` digunakan saat pertama kali menjalankan proses, di mana bisa menentukan prioritas awalnya.
 - `renice` digunakan untuk mengubah prioritas proses yang sedang berjalan, dengan syarat proses masih aktif.
 - Percobaan awal dengan `nice` gagal karena skrip `infinite.sh` tidak ditemukan.
 - `renice` berhasil mengubah prioritas proses dengan PID `2426` dari `0` ke `5`.
 - Saat menggunakan `renice`, pastikan PID yang digunakan valid dan proses masih berjalan.
 
-# Filesystem `/proc` di Linux
+### Filesystem `/proc` di Linux
 
 ## Apa Itu `/proc`?
 `/proc` adalah pseudo-filesystem yang digunakan oleh kernel Linux untuk menyediakan berbagai informasi sistem dalam bentuk file yang dapat diakses pengguna. Meskipun namanya `/proc`, filesystem ini tidak hanya berisi data tentang proses, tetapi juga statistik sistem lainnya.
@@ -323,110 +330,94 @@ Setiap proses yang berjalan di sistem direpresentasikan sebagai direktori dengan
 - **`/proc/[PID]/status`** → Informasi umum tentang status proses, seperti UID, GID, dan penggunaan memori.
 
 ## Contoh Penggunaan `/proc`
+<img src="images/proc.jpg" alt="proc">
 1. **Melihat command line proses tertentu**
    ```bash
    cat /proc/1234/cmdline
 
-# Strace dan Truss
-
-## Pengantar
+### Strace dan Truss
 `strace` di Linux dan `truss` di FreeBSD digunakan untuk menelusuri **system call** dan **sinyal** dari suatu proses. Perintah ini berguna untuk debugging atau memahami bagaimana suatu program berinteraksi dengan sistem.
 
-## Instalasi
-### Linux (strace)
-```bash
-sudo apt install strace  # Debian/Ubuntu
-sudo yum install strace  # CentOS/RHEL
-sudo dnf install strace  # Fedora
-```
-
-### FreeBSD (truss)
-```bash
-sudo pkg install truss
-```
-
-## Menggunakan `strace`
-### Menjalankan Program dengan `strace`
+# Menggunakan `strace`
+Menjalankan Program dengan `strace`
 Untuk melacak system call dari suatu perintah:
 ```bash
 strace ls
 ```
-
-### Melacak Proses Berjalan dengan PID
+# Melacak Proses Berjalan dengan PID
 ```bash
 strace -p 5810
 ```
-Output akan menunjukkan aktivitas proses, misalnya membaca waktu, membuka direktori `/proc`, atau mengakses file `/proc/1/stat` untuk mendapatkan informasi tentang proses init.
-
-## Menggunakan `truss`
-### Menjalankan Program dengan `truss`
+### Menggunakan `truss`
+# Menjalankan Program dengan `truss`
 ```bash
 truss ls
 ```
 
-### Melacak Proses Berjalan dengan PID
+# Melacak Proses Berjalan dengan PID
 ```bash
 truss -p 5810
 ```
 
-## Opsi Tambahan
+# Opsi Tambahan
 | Opsi       | Deskripsi |
 |------------|------------------------------------------------|
 | `-c`       | Menampilkan ringkasan jumlah dan waktu sistem call |
 | `-o file`  | Menyimpan output ke file |
 | `-e trace` | Menyaring jenis system call tertentu (misal `-e open,read`) |
 
-## Contoh Output `strace`
+# Contoh Output `strace`
 ```bash
 open("/etc/ld.so.cache", O_RDONLY) = 3
 open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY) = 3
 read(3, "\177ELF\002\001\001"..., 832) = 832
 ```
 
-## Kesimpulan
+# Kesimpulan
 - **`strace`** untuk Linux, **`truss`** untuk FreeBSD.
 - Membantu dalam debugging dan analisis performa aplikasi.
 - Dapat digunakan untuk melacak system call dari proses yang berjalan.
 - Hati-hati saat digunakan pada sistem produksi, karena dapat memperlambat proses yang dipantau.
 
-# Mengatasi Runaway Process di Linux
+### Mengatasi Runaway Process di Linux
 
 Runaway process adalah proses yang tidak merespons sistem dan menggunakan CPU secara berlebihan, menyebabkan komputer berjalan lambat atau tidak responsif.
 
 ## Berdasarkan percobaan yang dilakukan:
-
-### 1. Menggunakan `lsof -p 547`
+<img src="images/runway.jpg" alt="run">
+<img src="images/run2.jpg" alt="run2">
+# 1. Menggunakan `lsof -p 547`
    - Perintah ini digunakan untuk melihat file yang dibuka oleh proses dengan **PID 547** (`dbus-daemon`).  
    - Hasilnya menunjukkan bahwa beberapa file tidak dapat diakses karena **"Permission denied"** (izin ditolak).
 
-### 2. Menjalankan `df -h` untuk Melihat Penggunaan Disk
+#2. Menjalankan `df -h` untuk Melihat Penggunaan Disk
    - Perintah ini digunakan untuk melihat kapasitas penyimpanan yang tersedia dan terpakai pada sistem.  
    - Terlihat bahwa `/dev/sda1` memiliki total 19G dengan 6.1G digunakan, sedangkan `/storage` menggunakan `/dev/sda2`.
 
-### 3. Menjalankan `du -ah / | sort -rh | head -10` untuk Melihat File Terbesar
+# 3. Menjalankan `du -ah / | sort -rh | head -10` untuk Melihat File Terbesar
    - Perintah ini digunakan untuk mencari file atau direktori terbesar di sistem.  
    - Namun, ada beberapa direktori di `/tmp/systemd-private-...` yang tidak dapat diakses karena keterbatasan izin.
 
-### 4. Menjalankan `ps aux --sort=-%cpu | head -10` untuk Menampilkan Proses dengan Penggunaan CPU Tertinggi
+# 4. Menjalankan `ps aux --sort=-%cpu | head -10` untuk Menampilkan Proses dengan Penggunaan CPU Tertinggi
    - Perintah ini menampilkan daftar proses yang sedang berjalan, diurutkan berdasarkan penggunaan CPU tertinggi.  
    - Hasilnya menunjukkan bahwa proses dengan **PID 2516** menggunakan **200% CPU**, yang kemungkinan besar adalah runaway process.  
    - Proses lain seperti `gnome-shell`, `ibus-daemon`, dan `fwupd` juga terlihat dalam daftar dengan penggunaan CPU yang lebih kecil.
 
-### 5. Mencoba Menghentikan Proses `dbus-daemon` dengan `kill 547`
+# 5. Mencoba Menghentikan Proses `dbus-daemon` dengan `kill 547`
    - Perintah ini gagal dengan pesan **"Operation not permitted"**, yang berarti pengguna tidak memiliki izin untuk menghentikan proses ini.  
    - Kemungkinan, proses ini berjalan sebagai sistem atau pengguna lain, sehingga membutuhkan `sudo` untuk menghentikannya.
 
-## **Kesimpulan:**
+# **Kesimpulan:**
 - Sistem mengalami proses yang menggunakan CPU secara berlebihan (`PID 2516`).  
 - Proses `dbus-daemon` (`PID 547`) tidak dapat dihentikan karena keterbatasan izin.  
 - Ada beberapa direktori di `/tmp/systemd-private-...` yang tidak bisa diakses.  
 - Untuk menghentikan proses runaway, kemungkinan diperlukan perintah dengan `sudo`.  
 
-# Strace and Truss
+### Strace and Truss
 
 Untuk mengetahui aktivitas suatu proses, Anda bisa menggunakan `strace` di Linux atau `truss` di FreeBSD. Perintah ini menelusuri system call dan sinyal, berguna untuk debugging atau memahami cara kerja suatu program.
 
-## Contoh penggunaan `strace` pada proses dengan PID 5810:
+# Contoh penggunaan `strace` pada proses dengan PID 5810:
 
 ```bash
 $ strace -p 5810
@@ -440,30 +431,30 @@ Outputnya menunjukkan proses `top` membaca waktu saat ini, membuka directory `/p
 
 Runaway process adalah proses yang tidak merespons sistem dan menggunakan CPU secara berlebihan, menyebabkan komputer berjalan lambat atau tidak responsif.
 
-## Berdasarkan percobaan yang dilakukan:
+# Berdasarkan percobaan yang dilakukan:
 
-### 1. Menggunakan `lsof -p 547`
+1. Menggunakan `lsof -p 547`
    - Perintah ini digunakan untuk melihat file yang dibuka oleh proses dengan **PID 547** (`dbus-daemon`).  
    - Hasilnya menunjukkan bahwa beberapa file tidak dapat diakses karena **"Permission denied"** (izin ditolak).
 
-### 2. Menjalankan `df -h` untuk Melihat Penggunaan Disk
+2. Menjalankan `df -h` untuk Melihat Penggunaan Disk
    - Perintah ini digunakan untuk melihat kapasitas penyimpanan yang tersedia dan terpakai pada sistem.  
    - Terlihat bahwa `/dev/sda1` memiliki total 19G dengan 6.1G digunakan, sedangkan `/storage` menggunakan `/dev/sda2`.
 
-### 3. Menjalankan `du -ah / | sort -rh | head -10` untuk Melihat File Terbesar
+3. Menjalankan `du -ah / | sort -rh | head -10` untuk Melihat File Terbesar
    - Perintah ini digunakan untuk mencari file atau direktori terbesar di sistem.  
    - Namun, ada beberapa direktori di `/tmp/systemd-private-...` yang tidak dapat diakses karena keterbatasan izin.
 
-### 4. Menjalankan `ps aux --sort=-%cpu | head -10` untuk Menampilkan Proses dengan Penggunaan CPU Tertinggi
+4. Menjalankan `ps aux --sort=-%cpu | head -10` untuk Menampilkan Proses dengan Penggunaan CPU Tertinggi
    - Perintah ini menampilkan daftar proses yang sedang berjalan, diurutkan berdasarkan penggunaan CPU tertinggi.  
    - Hasilnya menunjukkan bahwa proses dengan **PID 2516** menggunakan **200% CPU**, yang kemungkinan besar adalah runaway process.  
    - Proses lain seperti `gnome-shell`, `ibus-daemon`, dan `fwupd` juga terlihat dalam daftar dengan penggunaan CPU yang lebih kecil.
 
-### 5. Mencoba Menghentikan Proses `dbus-daemon` dengan `kill 547`
+5. Mencoba Menghentikan Proses `dbus-daemon` dengan `kill 547`
    - Perintah ini gagal dengan pesan **"Operation not permitted"**, yang berarti pengguna tidak memiliki izin untuk menghentikan proses ini.  
    - Kemungkinan, proses ini berjalan sebagai sistem atau pengguna lain, sehingga membutuhkan `sudo` untuk menghentikannya.
 
-## **Kesimpulan:**
+**Kesimpulan:**
 - Sistem mengalami proses yang menggunakan CPU secara berlebihan (`PID 2516`).  
 - Proses `dbus-daemon` (`PID 547`) tidak dapat dihentikan karena keterbatasan izin.  
 - Ada beberapa direktori di `/tmp/systemd-private-...` yang tidak bisa diakses.  
@@ -471,11 +462,11 @@ Runaway process adalah proses yang tidak merespons sistem dan menggunakan CPU se
 
 ---
 
-# Proses Periodik dan Cron di Linux
+### Proses Periodik dan Cron di Linux
 
 Cron adalah daemon yang menjalankan perintah pada jadwal yang telah ditentukan. Cron dimulai saat sistem booting dan berjalan terus selama sistem aktif.
 
-## Format Crontab
+# Format Crontab
 
 Crontab adalah file konfigurasi yang berisi jadwal eksekusi perintah. Formatnya:
 
@@ -490,8 +481,8 @@ Crontab adalah file konfigurasi yang berisi jadwal eksekusi perintah. Formatnya:
 +-------------- menit (0-59)
 ```
 
-## Percobaan:
-
+# Percobaan:
+<img src="images/periodic.jpg" alt="period">
 ### 1. Cek Status Cron
 Pengguna menjalankan perintah berikut untuk mengecek status layanan cron:
 
@@ -501,7 +492,7 @@ systemctl status cron
 
 Hasilnya menunjukkan bahwa layanan cron aktif dan berjalan (`active (running)`). Ini berarti cron siap menjalankan tugas yang dijadwalkan.
 
-### 2. Membuka Crontab
+# 2. Membuka Crontab
 Pengguna mencoba mengedit crontab dengan perintah:
 
 ```bash
@@ -510,26 +501,24 @@ crontab -e
 
 Namun, karena belum ada crontab untuk pengguna `alfani26`, sistem membuat crontab kosong.
 
-### 3. Pemilihan Editor
+# 3. Pemilihan Editor
 Sistem menawarkan dua pilihan editor:
 - **Nano** (lebih mudah digunakan, default)
 - **Vim Tiny**
 
 Pengguna memilih `1` (Nano).
 
-### 4. Pengeditan Crontab
+# 4. Pengeditan Crontab
 Setelah memilih editor, pengguna kembali menjalankan `crontab -e`.
 Sistem mengonfirmasi bahwa crontab baru sedang dibuat dengan pesan:
 
 ```plaintext
 crontab: installing new crontab
 ```
-# Systemd Timer vs Cron Jobs
+### Systemd Timer vs Cron Jobs
+Systemd Timer adalah unit konfigurasi dalam sistem Linux yang namanya berakhiran `.timer`. Systemd timers dapat digunakan sebagai alternatif dari cron jobs dengan fleksibilitas dan kontrol yang lebih besar.
 
-## **Pengantar**
-**Systemd Timer** adalah unit konfigurasi dalam sistem Linux yang namanya berakhiran `.timer`. Systemd timers dapat digunakan sebagai alternatif dari cron jobs dengan fleksibilitas dan kontrol yang lebih besar.
-
-## **Cara Kerja Systemd Timer**
+# Cara Kerja Systemd Timer
 - Unit **timer** mengaktifkan unit **service** pada waktu yang ditentukan.
 - Dapat dijalankan berdasarkan waktu tertentu, saat sistem boot, atau berdasarkan suatu kejadian.
 - Untuk melihat daftar timer aktif, gunakan perintah berikut:
@@ -538,7 +527,7 @@ crontab: installing new crontab
 systemctl list-timers
 ```
 
-## **Contoh Systemd Timer**
+# Contoh Systemd Timer
 Unit `logrotate.timer` menjalankan `logrotate.service` setiap tengah malam:
 
 ```ini
@@ -548,24 +537,24 @@ AccuracySec=1h
 Persistent=true
 ```
 
-### **Penjelasan Konfigurasi**
+# Penjelasan Konfigurasi
 - `OnCalendar=daily` → Menjadwalkan eksekusi setiap hari.
 - `AccuracySec=1h` → Memberikan toleransi waktu eksekusi hingga 1 jam.
 - `Persistent=true` → Menjalankan tugas yang terlewat saat sistem mati.
 
-## **Penggunaan Umum Systemd Timer & Cron Jobs**
-1. **Mengirim Email** → Mengirim laporan otomatis melalui email.
-2. **Membersihkan Filesystem** → Menghapus file lama di direktori sampah setiap hari.
-3. **Rotasi Log** → Membagi log berdasarkan ukuran atau tanggal agar lebih terorganisir.
-4. **Menjalankan Batch Jobs** → Memproses antrian pesan atau data dalam jumlah besar.
-5. **Backup & Mirroring** → Menyalin direktori ke sistem lain secara otomatis menggunakan `rsync`.
+# Penggunaan Umum Systemd Timer & Cron Jobs
+1. Mengirim Email → Mengirim laporan otomatis melalui email.
+2. Membersihkan Filesystem → Menghapus file lama di direktori sampah setiap hari.
+3. Rotasi Log → Membagi log berdasarkan ukuran atau tanggal agar lebih terorganisir.
+4. Menjalankan Batch Jobs → Memproses antrian pesan atau data dalam jumlah besar.
+5. Backup & Mirroring → Menyalin direktori ke sistem lain secara otomatis menggunakan `rsync`.
 
-## **Perbedaan Systemd Timer dan Cron Jobs**
+# Perbedaan Systemd Timer dan Cron Jobs
 | Fitur | Systemd Timer | Cron Jobs |
 |-------|--------------|-----------|
 | Fleksibilitas | Tinggi (bisa berdasarkan event) | Terbatas pada waktu |
 | Logging | Dapat dipantau melalui `journalctl` | Harus dikonfigurasi manual |
 | Pemulihan | Bisa menjalankan tugas yang terlewat | Tidak mendukung |
 
-## **Kesimpulan**
+# Kesimpulan
 Systemd timers lebih fleksibel dibandingkan cron, mendukung eksekusi berbasis kejadian, serta memiliki fitur pemulihan tugas yang terlewat.
