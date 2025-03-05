@@ -5,7 +5,7 @@
 </div>
 <br />
 <div align="center">
-    <img src="images/Logo_PENS.png" alt="Logo PENS">
+    <img src="assets/Logo_PENS.png" alt="Logo PENS">
     <h3 style="text-align: center;">Disusun Oleh :</h3>
     <p style="text-align: center;">
         <strong>Marieta Nona Alfani (3123500025)</strong>
@@ -60,7 +60,7 @@ Untuk mempermudah pengelolaan, terdapat alat tingkat lanjut:
 
 💡 **Percobaan**  
 Cek sistem manajemen paket yang digunakan pada sistem Anda:
-
+<img src="assets/cat.jpg" alt="cat">
 ```bash
 cat /etc/os-release
 ```
@@ -77,7 +77,7 @@ Repositori perangkat lunak adalah server yang menyimpan paket yang bisa diunduh 
 
 💡 **Percobaan**  
 Lihat daftar repositori yang dikonfigurasi pada sistem Debian/Ubuntu:
-
+<img src="assets/list.jpg" alt="list">
 ```bash
 cat /etc/apt/sources.list
 ```
@@ -92,7 +92,7 @@ APT adalah sistem manajemen paket yang digunakan pada Debian dan turunannya. Ala
 
 💡 **Percobaan**  
 Cari paket yang tersedia menggunakan `apt-cache`:
-
+<img src="assets/apt.jpg" alt="apt">
 ```bash
 apt-cache search nginx
 ```
@@ -116,7 +116,7 @@ Setelah menginstal perangkat lunak, sering kali perlu dilakukan penyesuaian agar
 
 💡 **Percobaan**  
 Cek pengaturan lokal yang digunakan sistem Anda:
-
+<img src="assets/locale.jpg" alt="locale">
 ```bash
 locale
 ```
