@@ -63,5 +63,5 @@ Jika terdapat error saat menjalankan VirtualBox, dilakukan perbaikan dengan meny
 
 ## **10. Memulai Instalasi Debian**
 Setelah semua persiapan selesai, instalasi Debian dijalankan pada mesin virtual yang telah dibuat.  
- <img src="assets/11.jpeg" alt="Gambar 11">   
+ <img src="assets/11.jpg" alt="Gambar 11">   
  <img src="assets/12.jpeg" alt="Gambar 12">  
