@@ -5,7 +5,7 @@
 </div>
 <br />
 <div align="center">
-    <img src="assets/Logo_PENS.png" alt="Logo PENS">
+    <img src="images/Logo_PENS.png" alt="Logo PENS">
     <h3 style="text-align: center;">Disusun Oleh :</h3>
     <p style="text-align: center;">
         <strong>Marieta Nona Alfani (3123500025)</strong>
@@ -22,7 +22,7 @@
 ### 1. Install dan Konfigurasi NTP Client
 Instal dan konfigurasi NTP client agar host memiliki waktu yang sinkron dengan NTP server di Indonesia.
 
-![Install NTP Client](image/1.png)
+<img src="image/1.png" alt="Install NTP Client">
 
 ### 2. Nama NTP Server
 Nama NTP server yang harus dirujuk adalah NTP server Indonesia.
@@ -33,13 +33,13 @@ Referensi:
 
 **Package terkait:** `ntp`, `ntpssec`
 
-![NTP Server](image/2.png)
-![Konfigurasi NTP](image/3.png)
-![NTP Status](image/4.png)
+<img src="image/2.png" alt="NTP Server">
+<img src="image/3.png" alt="Konfigurasi NTP">
+<img src="image/4.png" alt="NTP Status">
 
 ### 3. Periksa Sinkronisasi
 
-![Cek Sinkronisasi](image/5.png)
+<img src="image/5.png" alt="Cek Sinkronisasi">
 
 ---
 
@@ -50,45 +50,45 @@ Folder ini harus bisa diakses melalui Windows Client dan Linux Client via file m
 
 #### Instalasi Samba
 
-![Install Samba](image/6.png)
+<img src="image/6.png" alt="Install Samba">
 
 #### Percobaan Fully Access dan Konfigurasi Samba
 
-![Konfigurasi Samba](image/7.png)
+<img src="image/7.png" alt="Konfigurasi Samba">
 
 #### Membuat File di Direktori `/home/share`
 
-![Buat File](image/8.png)
-![Cek File](image/9.png)
-![Verifikasi File](image/10.png)
+<img src="image/8.png" alt="Buat File">
+<img src="image/9.png" alt="Cek File">
+<img src="image/10.png" alt="Verifikasi File">
 
 ### 2. Membuat Limited Shared Folder
 
 #### Konfigurasi Samba untuk Limited Share
 
-![Konfigurasi Limited Share](image/11.png)
+<img src="image/11.png" alt="Konfigurasi Limited Share">
 
 #### Membuat File di Direktori `/home/share01`
 
-![Buat File Limited Share](image/12.png)
+<img src="image/12.png" alt="Buat File Limited Share">
 
 ### 3. Menambahkan User Baru
 
-![Menambahkan User](image/13.png)
+<img src="image/13.png" alt="Menambahkan User">
 
 ### 4. Menambahkan User Baru ke Grup `fanigroup`
 
-![Tambah User ke Grup](image/14.png)
+<img src="image/14.png" alt="Tambah User ke Grup">
 
 ### 5. Menambahkan User Valid ke Samba
 
-![Tambah User Valid Samba](image/15.png)
+<img src="image/15.png" alt="Tambah User Valid Samba">
 
 ### 6. Akses ke Folder Share dari CLI Client
 Referensi:
 - [Server World - Debian 12 Samba](https://www.server-world.info/en/note?os=Debian_12&p=samba&f=1)
 
-![Akses dari CLI](image/16.png)
+<img src="image/16.png" alt="Akses dari CLI">
 
 **Package terkait:** `samba`, `smbclient`, `cifs-tools`
 
@@ -104,31 +104,31 @@ APT (Advanced Package Tool) adalah package manager berbasis CLI yang umum diguna
 
 #### 1. Perintah untuk Mencari dan Menampilkan Informasi Paket
 
-![Mencari Paket](image/17.png)
+<img src="image/17.png" alt="Mencari Paket">
 
 #### 2. Perintah untuk Mengelola Paket dalam Sistem
 Perintah ini hanya dapat dijalankan oleh administrator sistem dengan mode root (`su -`).
 
-![Kelola Paket](image/18.png)
-![APT Update](image/19.png)
+<img src="image/18.png" alt="Kelola Paket">
+<img src="image/19.png" alt="APT Update">
 
 ### Software (Simplified Package Manager)
 Software adalah sekumpulan perintah atau instruksi yang menjalankan program komputer.
 
-![Software Manager](image/20.png)
+<img src="image/20.png" alt="Software Manager">
 
 ### Discover: KDE Package Manager
 Discover adalah pusat perangkat lunak KDE yang menyediakan antarmuka grafis untuk mengelola aplikasi dan pembaruan sistem.
 
-![Discover](image/21.png)
+<img src="image/21.png" alt="Discover">
 
 Discover mendukung berbagai backend, termasuk PackageKit, Flatpak, dan Snap, memungkinkan integrasi dengan berbagai sistem manajemen paket. Dengan menggunakan teknologi Kirigami, Discover menawarkan antarmuka yang responsif dan adaptif untuk berbagai perangkat.
 
 ### Synaptic: Pengelola Paket yang Komprehensif
 Synaptic adalah antarmuka grafis dari manajer paket Debian yang memberikan tampilan menyeluruh dari semua paket yang tersedia.
 
-![Synaptic](image/22.png)
-![Synaptic Interface](image/23.png)
+<img src="image/22.png" alt="Synaptic">
+<img src="image/23.png" alt="Synaptic Interface">
 
 **Fitur utama Synaptic:**
 - Memiliki fungsi yang sama seperti `apt`.
