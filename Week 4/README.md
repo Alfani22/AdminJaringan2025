@@ -29,24 +29,25 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 ![Konfigurasi Internal 2](Assets/3.png)
 **Edit konfigurasi opsi:**
 ![Edit Opsi](Assets/4.png)
+![Zona Internal 1](Assets/5.png)
 
 ### 3. Tambahkan Zona Internal
-![Zona Internal 1](Assets/5.png)
-![Zona Internal 2](Assets/6.png)
+![Zona Internal 1](Assets/6.png)
+![Zona Internal 2](Assets/7.png)
 
 ### 4. Konfigurasi Penggunaan IPv4
-![IPv4 Konfigurasi 1](Assets/7.png)
-![IPv4 Konfigurasi 2](Assets/8.png)
+![IPv4 Konfigurasi 1](Assets/8.png)
+![IPv4 Konfigurasi 2](Assets/9.png)
 
 ## B. Configure Zone Files
 
 ### 1. Buat Zone Files untuk Resolusi Forward (Domain ke IP)
-![Zone Forward 1](Assets/9.png)
-![Zone Forward 2](Assets/10.png)
+![Zone Forward 1](Assets/10.png)
+![Zone Forward 2](Assets/11.png)
 
 ### 2. Buat Zone Files untuk Resolusi Reverse (IP ke Domain)
-![Zone Reverse 1](Assets/11.png)
-![Zone Reverse 2](Assets/12.png)
+![Zone Reverse 1](Assets/12.png)
+![Zone Reverse 2](Assets/13.png)
 
 ## C. BIND Verify Resolution
 
