@@ -62,26 +62,25 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 Gunakan perintah `dig` untuk menguji apakah domain dapat di-resolve ke alamat IP:
 
 #### (a) Verifikasi Resolusi Nama ke IP
-![Verifikasi Nama ke IP](Assets/16.png)
+![Verifikasi Nama ke IP](Assets/17.png)
 
 **Error:** "communications error to 10.0.0.30#53 timed out" menunjukkan bahwa sistem tidak bisa berkomunikasi dengan server DNS pada 10.0.0.30.
 
 ### Langkah-Langkah Troubleshooting
 1. **Pastikan BIND9 berjalan di server**  
-   ![Cek BIND9](Assets/17.png)
+   ![Cek BIND9](Assets/18.png)
 
 2. **Pastikan Port 53 tidak diblokir**  
-   ![Cek Port 53](Assets/18.png)
+   ![Cek Port 53](Assets/19.png)
 
 3. **Cek konektivitas jaringan**  
-   ![Cek Koneksi](Assets/19.png)
+   ![Cek Koneksi](Assets/20.png)
    
    **Coba ping server DNS:**  
-   ![Ping Server DNS](Assets/20.png)
+   ![Ping Server DNS](Assets/21.png)
 
 4. **Pastikan konfigurasi BIND9 benar**  
    **Edit file named.conf.options:**  
-   ![Edit named.conf.options](Assets/21.png)
    ![Verifikasi Ulang](Assets/22.png)
 
 **Ulang Verifikasi Resolusi Nama ke IP:**  
