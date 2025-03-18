@@ -25,10 +25,10 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 <img src="Week4/Assets/1.png" alt="image1.png">
 
 ### 2. Tambahkan Konfigurasi Internal
-<img src="Week 4/Assets/2.png" alt="image2.png">
-<img src="Week 4/Assets/3.png" alt="image3.png">
+<img src="Week4/Assets/2.png" alt="image2.png">
+<img src="Week4/Assets/3.png" alt="image3.png">
 **Edit konfigurasi opsi:**
-<img src="Week 4/Assets/4.png" alt="image4.png">
+<img src="Week4/Assets/4.png" alt="image4.png">
 
 ### 3. Tambahkan Zona Internal
 <img src="Week 4/Assets/5.png" alt="image5.png">
