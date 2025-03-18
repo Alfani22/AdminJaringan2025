@@ -4,7 +4,7 @@
 </div>
 <br />
 <div align="center">
-    <img src="Week1/Assets/Logo_PENS.png" alt="Logo PENS">
+    <img src="Week4/Assets/Logo_PENS.png" alt="Logo PENS">
     <h3 style="text-align: center;">Disusun Oleh : </h3>
     <p style="text-align: center;">
         <strong>Marieta Nona Alfani</strong><br>
