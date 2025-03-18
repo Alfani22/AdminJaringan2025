@@ -81,28 +81,29 @@ Gunakan perintah `dig` untuk menguji apakah domain dapat di-resolve ke alamat IP
 4. **Pastikan konfigurasi BIND9 benar**  
    **Edit file named.conf.options:**  
    <img src="Week 4/Assets/21.png" alt="image21.png">
+   <img src="Week 4/Assets/22.png" alt="image22.png">
 
 **Ulang Verifikasi Resolusi Nama ke IP:**  
-<img src="Week 4/Assets/22.png" alt="image22.png">
+<img src="Week 4/Assets/22.png" alt="image23.png">
 
 Dari hasil `dig dlp.kelompok3.home`, terlihat bahwa status yang dikembalikan adalah **NXDOMAIN**, yang berarti nama domain tersebut tidak ditemukan dalam server DNS yang digunakan.
 
 ### Penyebab Kemungkinan & Solusi:
 1. **Zona Tidak Terdefinisi di Bind9**
    Pastikan sudah menambahkan zona untuk `kelompok3.home` di file konfigurasi Bind9 (`named.conf.local` atau `named.conf.default-zones`).
-   <img src="Week 4/Assets/23.png" alt="image23.png">
-   <img src="Week 4/Assets/24.png" alt="image24.png">
+   <img src="Week 4/Assets/23.png" alt="image24.png">
+   <img src="Week 4/Assets/24.png" alt="image25.png">
 
 2. **File Zona Tidak Ada atau Salah Format**
    Pastikan file zona `/etc/bind/db.kelompok3.home` ada dan berisi konfigurasi yang benar.
-   <img src="Week 4/Assets/25.png" alt="image25.png">
+   <img src="Week 4/Assets/25.png" alt="image26.png">
 
 3. **Restart Bind9 Setelah Perubahan**
-   <img src="Week 4/Assets/26.png" alt="image26.png">
+   <img src="Week 4/Assets/26.png" alt="image27.png">
 
 4. **Uji Query Kembali**
    **(a) Verifikasi Resolusi Nama ke IP**  
-   <img src="Week 4/Assets/27.png" alt="image27.png">
+   <img src="Week 4/Assets/27.png" alt="image28.png">
 
    **Penjelasan hasil output:**
    - **Status NOERROR** → Domain `dlp.kelompok3.home` berhasil ditemukan oleh server DNS.
@@ -111,7 +112,7 @@ Dari hasil `dig dlp.kelompok3.home`, terlihat bahwa status yang dikembalikan ada
    - **Server DNS yang Digunakan** → Query dilakukan ke `10.0.2.3`, yang merupakan server DNS lokal.
 
    **(b) Verifikasi Resolusi IP ke Nama**
-   <img src="Week 4/Assets/28.png" alt="image28.png">
+   <img src="Week 4/Assets/28.png" alt="image29.png">
 
    **Penjelasan hasil output:**
    1. **Header:**
