@@ -22,7 +22,7 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 ## A. Configure for Internal Network
 
 ### 1. Instal BIND
-<img src="Week 4/Assets/1.png" alt="image1.png">
+<img src="Week4/Assets/1.png" alt="image1.png">
 
 ### 2. Tambahkan Konfigurasi Internal
 <img src="Week 4/Assets/2.png" alt="image2.png">
