@@ -55,7 +55,7 @@ Program Studi Teknik Informatika
 ## C. Verifikasi Resolusi BIND
 
 ### 1. Restart BIND untuk Menerapkan Perubahan
-![Pengaturan DNS 1](Assets/14.png)  
+![Pengaturan DNS 1](Assets/restart.jpg)  
 
 ### 2. Ubah Pengaturan DNS ke Server Sendiri
 ![Pengaturan DNS 1](Assets/15.png)  
@@ -83,11 +83,11 @@ Gunakan perintah `dig` untuk menguji apakah domain dapat di-resolve ke alamat IP
 
 4. **Pastikan konfigurasi BIND9 benar**  
    **Edit file named.conf.options:**  
-   ![Verifikasi Ulang](Assets/21.png)  
-   ![Verifikasi Ulang](Assets/22.png)  
+   ![Verifikasi Ulang](Assets/kon1.jpg)  
+   ![Verifikasi Ulang](Assets/kon2.jpg)  
 
 **Ulang Verifikasi Resolusi Nama ke IP:**  
-![Verifikasi Ulang](Assets/23.png)
+![Verifikasi Ulang](Assets/verif.jpg)
 
 Dari hasil `dig dlp.kelompok3.home`, terlihat bahwa status yang dikembalikan adalah **NXDOMAIN**, yang berarti nama domain tersebut tidak ditemukan dalam server DNS yang digunakan.
 
