@@ -55,8 +55,8 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 ![Restart BIND](Assets/14.png)
 
 ### 2. Ubah Pengaturan DNS ke Server Sendiri
-![Pengaturan DNS 1](Assets/14.png)
-![Pengaturan DNS 2](Assets/15.png)
+![Pengaturan DNS 1](Assets/15.png)
+![Pengaturan DNS 2](Assets/16.png)
 
 ### 3. Verifikasi Resolusi Nama dan Alamat
 Gunakan perintah `dig` untuk menguji apakah domain dapat di-resolve ke alamat IP:
