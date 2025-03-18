@@ -74,13 +74,13 @@ Gunakan perintah `dig` untuk menguji apakah domain dapat di-resolve ke alamat IP
    ![Cek Port 53](Assets/19.png)
 
 3. **Cek konektivitas jaringan**  
-   ![Cek Koneksi](Assets/20.png)
    
    **Coba ping server DNS:**  
-   ![Ping Server DNS](Assets/21.png)
+     ![Cek Koneksi](Assets/20.png)
 
 4. **Pastikan konfigurasi BIND9 benar**  
    **Edit file named.conf.options:**  
+   ![Verifikasi Ulang](Assets/21.png)
    ![Verifikasi Ulang](Assets/22.png)
 
 **Ulang Verifikasi Resolusi Nama ke IP:**  
