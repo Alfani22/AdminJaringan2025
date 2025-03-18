@@ -52,7 +52,7 @@ Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
 ## C. BIND Verify Resolution
 
 ### 1. Restart BIND untuk Menerapkan Perubahan
-![Restart BIND](Assets/14.png)
+![Pengaturan DNS 1](Assets/14.png)
 
 ### 2. Ubah Pengaturan DNS ke Server Sendiri
 ![Pengaturan DNS 1](Assets/15.png)
