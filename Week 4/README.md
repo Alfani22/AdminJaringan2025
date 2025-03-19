@@ -95,6 +95,7 @@ DNS bekerja dengan cara mengubah nama domain menjadi alamat IP melalui proses re
   traceroute www.google.com
   ```
   ![Traceroute](images/h.png)
+  ![Traceroute](images/i.png)
   Menampilkan jalur yang dilalui paket hingga mencapai tujuan.
 
 ## 7. Kesimpulan
