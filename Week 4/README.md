@@ -19,10 +19,12 @@
 
 ## 1. Pengertian DNS Server
 ![DNS Server](Assets/DNS_Server.png)
+
 DNS (Domain Name System) adalah sistem yang mengonversi nama domain yang mudah dibaca manusia menjadi alamat IP yang digunakan oleh komputer untuk berkomunikasi di jaringan. Struktur DNS bersifat hierarkis dan terdiri dari beberapa tingkatan.
 
 ## 2. Struktur Hierarki DNS
 ![Struktur DNS](Assets/a.png)
+
 - **Root Level**: Tingkat paling atas dalam hierarki DNS, dilambangkan dengan simbol `.`. Root Server menyimpan informasi tentang Top-Level Domains (TLDs) dan mengarahkan permintaan ke server yang sesuai.
 - **Top-Level Domains (TLDs):**
   - Generic TLDs (gTLDs): Contoh `.com`, `.org`, `.net`.
@@ -35,6 +37,7 @@ DNS (Domain Name System) adalah sistem yang mengonversi nama domain yang mudah d
 
 ## 3. Cara Kerja DNS
 ![Cara Kerja DNS](Assets/b.png)
+
 DNS bekerja dengan cara mengubah nama domain menjadi alamat IP melalui proses resolusi DNS. Langkah-langkahnya adalah:
 1. Klien mengirim permintaan ke Recursive DNS Server.
 2. Recursive DNS Server meneruskan permintaan ke Root Server jika tidak memiliki cache.
@@ -45,6 +48,7 @@ DNS bekerja dengan cara mengubah nama domain menjadi alamat IP melalui proses re
 
 ## 4. Komponen dalam DNS
 ![Komponen DNS](Assets/c.png)
+
 - **Root Server**: Server yang menyimpan informasi tentang TLDs.
 - **TLD Server**: Server yang menyimpan informasi domain berdasarkan kategori.
 - **Second-Level Domain Server**: Mengelola domain spesifik dalam suatu TLD.
@@ -115,6 +119,7 @@ DNS Server memainkan peran penting dalam menerjemahkan nama domain menjadi alama
 ### 2. Tambahkan Konfigurasi Internal
 ![Konfigurasi Internal 1](Assets/2.png)  
 ![Konfigurasi Internal 2](Assets/3.png)  
+
 **Edit konfigurasi opsi:**  
 ![Edit Opsi](Assets/4.png)  
 ![Zona Internal 1](Assets/5.png)  
