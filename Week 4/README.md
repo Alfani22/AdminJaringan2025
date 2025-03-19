@@ -1,23 +1,19 @@
-# Tugas Review Deskripsi
-## Workshop Administrasi Jaringan
-
-### Dosen Pengampu: Dr. Ferry Astika Saputra, S.T., M.Sc.
-
----
-
 <div align="center">
-   <img src="Assets/Logo_PENS.png" alt="Logo PENS" width="200">
+    <h1 style="text-align: center;font-weight: bold">Laporan Workshop Administrasi Jaringan<br></h1>
+    <h2 style="text-align: center;">Instalasi Debian <br></h2>
+    <h4 style="text-align: center;">Dosen Pengampu : Dr. Ferry Astika Saputra, S.T., M.Sc.</h4>
 </div>
-
-### Disusun Oleh:
-**Marieta Nona Alfani**  
-**3123500026 / 2 D3 IT A**
-
-### Politeknik Elektronika Negeri Surabaya
-Departemen Teknik Informatika dan Komputer  
-Program Studi Teknik Informatika  
-2024/2025
-
+<br />
+<div align="center">
+    <img src="images/Logo_PENS.jpg.png" alt="Logo PENS">
+    <h3 style="text-align: center;">Disusun Oleh :</h3>
+    <p style="text-align: center;">
+        <strong>Marieta Nona Alfani (3123500025)</strong>
+    </p>
+    <h3 style="text-align: center;line-height: 1.5">Politeknik Elektronika Negeri Surabaya<br>Departemen Teknik Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2025/2026</h3>
+    <hr>
+</div>
+<br>
 ---
 
 # Konfigurasi BIND untuk Internal Network dan Zone Files
