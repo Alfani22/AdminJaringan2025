@@ -65,6 +65,7 @@ DNS bekerja dengan cara mengubah nama domain menjadi alamat IP melalui proses re
   sudo less /etc/resolv.conf
   ```
   ![Melihat Konfigurasi](Assets/d.png)
+  
   Menampilkan server DNS yang digunakan oleh sistem.
 
 - **Melihat root hints**:
@@ -72,6 +73,7 @@ DNS bekerja dengan cara mengubah nama domain menjadi alamat IP melalui proses re
   less /usr/share/dns/root.hints
   ```
   ![Root Hints](Assets/e.png)
+  
   Menampilkan daftar Root Name Servers.
 
 ### B. Menguji Resolusi DNS
@@ -81,21 +83,23 @@ DNS bekerja dengan cara mengubah nama domain menjadi alamat IP melalui proses re
   nslookup mail.pens.ac.id
   ```
   ![NSLookup](Assets/f.png)
+  
   Menampilkan alamat IP dari `mail.pens.ac.id`.
 
 - **Menggunakan perintah ping untuk menguji DNS**:
   ```bash
   ping www.pens.ac.id
   ```
-  ![Ping](Assets/g.png)
+  ![Traceroute](Assets/h.png)
+  
   Menguji apakah nama domain dapat di-resolve menjadi alamat IP.
 
 - **Menggunakan traceroute untuk melihat jalur koneksi**:
   ```bash
   traceroute www.google.com
   ```
-  ![Traceroute](Assets/h.png)
   ![Traceroute](Assets/i.png)
+  
   Menampilkan jalur yang dilalui paket hingga mencapai tujuan.
 
 ## 7. Kesimpulan
