@@ -14,7 +14,6 @@
     <hr>
 </div>
 <br>
----
 
 # Konfigurasi BIND untuk Internal Network dan Zone Files
 
