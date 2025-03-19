@@ -209,18 +209,18 @@ Dari hasil `dig dlp.kelompok3.home`, terlihat bahwa status yang dikembalikan ada
    ![Verifikasi IP ke Nama](Assets/29.png)
 
    **Penjelasan hasil output:**
-   1. **Header:**
+   1) **Header:**
       - `dig` dijalankan menggunakan versi **DiG 9.18.33-1** pada sistem Debian.
       - **Status NOERROR**, artinya permintaan berhasil diproses tanpa kesalahan.
       - ID kueri: 33936 (ID unik untuk permintaan ini).
-   2. **QUESTION SECTION:**
+   2) **QUESTION SECTION:**
       - `30.0.0.10.in-addr.arpa. IN PTR`
       - Ini menunjukkan bahwa permintaan adalah reverse lookup untuk IP `10.0.0.30`.
-   3. **ANSWER SECTION:**
+   3) **ANSWER SECTION:**
       - `30.0.0.10.in-addr.arpa. 300 IN A 36.86.63.182`
         - Ini berarti alamat IP privat `10.0.0.30` dipetakan ke alamat IP publik `36.86.63.182`.
         - Ini biasanya menunjukkan bahwa `10.0.0.30` diterjemahkan melalui NAT ke IP publik.
-   4. **AUTHORITY SECTION:**
+   4) **AUTHORITY SECTION:**
       - `prisoner.iana.org` adalah server yang menangani domain `.arpa`, yang digunakan untuk DNS reverse lookup.
 
 ---
