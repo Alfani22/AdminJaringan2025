@@ -15,6 +15,91 @@
 </div>
 <br>
 
+# DNS SERVER
+
+## 1. Pengertian DNS Server
+![DNS Server](images/DNS_Server.png)
+DNS (Domain Name System) adalah sistem yang mengonversi nama domain yang mudah dibaca manusia menjadi alamat IP yang digunakan oleh komputer untuk berkomunikasi di jaringan. Struktur DNS bersifat hierarkis dan terdiri dari beberapa tingkatan.
+
+## 2. Struktur Hierarki DNS
+![Struktur DNS](images/a.png)
+- **Root Level**: Tingkat paling atas dalam hierarki DNS, dilambangkan dengan simbol `.`. Root Server menyimpan informasi tentang Top-Level Domains (TLDs) dan mengarahkan permintaan ke server yang sesuai.
+- **Top-Level Domains (TLDs):**
+  - Generic TLDs (gTLDs): Contoh `.com`, `.org`, `.net`.
+  - Country-code TLDs (ccTLDs): Contoh `.id`, `.jp`, `.au`.
+  - Infrastructure TLD: Seperti `.arpa` untuk keperluan infrastruktur jaringan.
+  - Internationalized TLDs (IDN): Domain dengan karakter non-Latin.
+- **Second-Level Domains (SLDs):** Domain yang berada langsung di bawah TLD, contoh: `apnic.net`.
+- **Third-Level Domains:** Subdomain dari SLD, contoh: `training.apnic.net`.
+- **Fully Qualified Domain Name (FQDN):** Nama domain lengkap yang mencakup semua tingkatan, contoh: `ws1.training.apnic.net`.
+
+## 3. Cara Kerja DNS
+![Cara Kerja DNS](images/b.png)
+DNS bekerja dengan cara mengubah nama domain menjadi alamat IP melalui proses resolusi DNS. Langkah-langkahnya adalah:
+1. Klien mengirim permintaan ke Recursive DNS Server.
+2. Recursive DNS Server meneruskan permintaan ke Root Server jika tidak memiliki cache.
+3. Root Server mengarahkan permintaan ke TLD Server.
+4. TLD Server mengarahkan ke Authoritative DNS Server.
+5. Authoritative DNS Server memberikan alamat IP yang sesuai.
+6. Recursive DNS Server mengirimkan hasil ke klien.
+
+## 4. Komponen dalam DNS
+![Komponen DNS](images/c.png)
+- **Root Server**: Server yang menyimpan informasi tentang TLDs.
+- **TLD Server**: Server yang menyimpan informasi domain berdasarkan kategori.
+- **Second-Level Domain Server**: Mengelola domain spesifik dalam suatu TLD.
+- **Subdomain Server**: Mengelola subdomain dalam suatu domain utama.
+
+## 5. File Konfigurasi Penting dalam DNS Server
+- `/etc/hosts`: Pemetaan manual antara alamat IP dan nama domain.
+- `/etc/resolv.conf`: Konfigurasi resolver DNS pada sistem Linux.
+- `/etc/nsswitch.conf`: Menentukan urutan pencarian nama host.
+- `root.hints`: Daftar Root Name Servers yang digunakan oleh resolver DNS.
+
+## 6. Percobaan DNS
+
+### A. Melihat Konfigurasi DNS
+
+- **Melihat isi `/etc/resolv.conf`**:
+  ```bash
+  sudo less /etc/resolv.conf
+  ```
+  ![Melihat Konfigurasi](images/d.png)
+  Menampilkan server DNS yang digunakan oleh sistem.
+
+- **Melihat root hints**:
+  ```bash
+  less /usr/share/dns/root.hints
+  ```
+  ![Root Hints](images/e.png)
+  Menampilkan daftar Root Name Servers.
+
+### B. Menguji Resolusi DNS
+
+- **Menggunakan perintah nslookup**:
+  ```bash
+  nslookup mail.pens.ac.id
+  ```
+  ![NSLookup](images/f.png)
+  Menampilkan alamat IP dari `mail.pens.ac.id`.
+
+- **Menggunakan perintah ping untuk menguji DNS**:
+  ```bash
+  ping www.pens.ac.id
+  ```
+  ![Ping](images/g.png)
+  Menguji apakah nama domain dapat di-resolve menjadi alamat IP.
+
+- **Menggunakan traceroute untuk melihat jalur koneksi**:
+  ```bash
+  traceroute www.google.com
+  ```
+  ![Traceroute](images/h.png)
+  Menampilkan jalur yang dilalui paket hingga mencapai tujuan.
+
+## 7. Kesimpulan
+DNS Server memainkan peran penting dalam menerjemahkan nama domain menjadi alamat IP, sehingga memungkinkan komunikasi yang lebih mudah dalam jaringan. Melalui berbagai percobaan, kita dapat memahami cara kerja DNS, memeriksa konfigurasi, serta menganalisis konektivitas dalam jaringan.
+
 # Konfigurasi BIND untuk Internal Network dan Zone Files
 
 ## A. Konfigurasi untuk Internal Network
