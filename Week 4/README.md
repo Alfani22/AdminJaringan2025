@@ -5,7 +5,7 @@
 </div>
 <br />
 <div align="center">
-    <img src="images/Logo_PENS.jpg.png" alt="Logo PENS">
+    <img src="Assets/Logo_PENS.png" alt="Logo PENS">
     <h3 style="text-align: center;">Disusun Oleh :</h3>
     <p style="text-align: center;">
         <strong>Marieta Nona Alfani (3123500025)</strong>
