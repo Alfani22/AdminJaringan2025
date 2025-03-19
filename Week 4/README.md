@@ -18,7 +18,7 @@
 # DNS SERVER
 
 ## 1. Pengertian DNS Server
-![DNS Server](Assets/DNS_Server.png)
+<img src="Assets/DNS_Server.png" alt="DNS Server" width="600">
 
 DNS (Domain Name System) adalah sistem yang mengonversi nama domain yang mudah dibaca manusia menjadi alamat IP yang digunakan oleh komputer untuk berkomunikasi di jaringan. Struktur DNS bersifat hierarkis dan terdiri dari beberapa tingkatan.
 
