@@ -39,9 +39,9 @@
    
    ![App Screenshot](img/install_wine.png)
 
-   Installasi ini diperlukan agar bisa melakukan install aplikasi Winbox di Linux. Kemudian, instalasi ini akan menginstal Wine, yang merupakan sebuah emulator untuk Windows. Wine ini digunakan untuk membuat aplikasi yang dibuat untuk Windows, dapat dijalankan di Linux. 
+   Instalasi ini dibutuhkan agar aplikasi Winbox, yang hanya tersedia untuk Windows, bisa dijalankan di Linux. Untuk itu, digunakan Wine, sebuah tool yang memungkinkan aplikasi Windows berjalan di sistem operasi Linux tanpa perlu emulator penuh atau virtual machine.
 
-2. Install Winbox dengan sftp kelompok 5 
+2. Install Winbox melalui SFTP – Kelompok 5
 
    ![App Screenshot](img/sftp_10_252_108_110.png)
 
@@ -51,25 +51,27 @@
 
    ![App Screenshot](img/ping.png)
 
-   Berdasarkan hasil di atas, network milik kelompok 3 terdeteksi saat terhubung ke LAN dengan alamat IP 10.252.108.53
+   Berdasarkan hasil pengujian, jaringan milik Kelompok 3 berhasil terdeteksi saat perangkat terhubung ke jaringan LAN. Alamat IP yang teridentifikasi adalah 10.252.108.53.
 
-4. Connect Winbox ke Mikrotik dengan IP address 10.252.108.53
+4. Hubungkan Winbox ke Mikrotik menggunakan IP address 10.252.108.53.
     
    ![App Screenshot](img/connect_network_winbox_kel3.png)
 
    ![App Screenshot](img/berhasil_connect.png)
 
-5. Mencoba ping network 192.168.1.0/24 di Mikrotik (Kelompok 1)
+5. Lakukan pengujian koneksi (ping) ke jaringan 192.168.1.0/24, yang dimiliki oleh Kelompok 1.
 
    ![App Screenshot](img/ping_kel_7.png)
 
-   Pada bagian IP, pilih menu Routes, kemudian tambahkan network 192.168.1.0/24 dan isi kolom gateway dengan 10.252.108.51 (pada gambar di atas merupakan konfigurasi untuk kelompok 7). Setelah konfigurasi selesai, klik button OK.
+   Untuk melakukan routing, buka menu IP > Routes pada Winbox. Tambahkan entri baru dengan destination network: 192.168.1.0/24, lalu isi kolom gateway dengan IP address 10.252.108.51 (dalam contoh ini, gateway merujuk pada IP milik Kelompok 7).
 
-   Sembunyikan (hidden) IP yang tidak terhubung ke perangkat MikroTik untuk menghindari kebingungan. Selanjutnya, lakukan pengujian koneksi dengan menjalankan perintah ping ke IP address 10.252.108.51 melalui Command Prompt. 
-   
-   Sebagai contoh, gambar di bawah ini menunjukkan hasil ping ke IP 192.168.1.0
-  
+Setelah konfigurasi selesai, klik tombol OK untuk menyimpan perubahan.
+
+Agar tidak membingungkan, sembunyikan IP yang tidak terhubung langsung ke perangkat Mikrotik. Setelah itu, lakukan pengujian koneksi dengan menjalankan perintah ping 10.252.108.51 melalui Command Prompt.
+
+Sebagai referensi, gambar di bawah menunjukkan hasil ping yang berhasil menuju jaringan 192.168.1.0/24.
+
    ![App Screenshot](img/hasil_ping_kel_1.png)
 
-   Jika test ping seperti pada langkah sebelumnya berhasil dilakukan, dan setiap uji koneksi tidak menunjukkan status request timed out atau pesan kesalahan lainnya, maka dapat disimpulkan bahwa koneksi antar device dari kelompok yang berbeda telah berhasil dilakukan.
+  Jika pengujian ping seperti pada langkah sebelumnya berhasil dilakukan, dan setiap koneksi tidak menunjukkan status Request Timed Out atau pesan kesalahan lainnya, maka dapat disimpulkan bahwa koneksi antar perangkat dari kelompok yang berbeda telah berhasil terjalin dengan baik.
    
