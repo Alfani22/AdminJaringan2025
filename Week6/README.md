@@ -14,264 +14,190 @@
 </div>
 
 ## Daftar Isi
-- [Daftar Isi](#daftar-isi)
-- [Instalasi Virtual Machine No-GUI (VM 1)](#instalasi-virtual-machine-no-gui-vm-1)
-- [Konfigurasi Virtual Machine No-GUI (VM 1)](#konfigurasi-virtual-machine-no-gui-vm-1)
-- [Instalasi NTP Client](#instalasi-ntp-client)
-- [Instalasi Samba](#instalasi-samba)
-- [Instalasi Bind9 (DNS)](#instalasi-bind9-dns)
 
-## Instalasi Virtual Machine No-GUI (VM 1)
-Langkah 1:<br>
-Unduh file ZIP virtual machine no-GUI di `https://drive.google.com/drive/folders/1Rnv4prB4BbsOebonX2GTHu6f1k6oQEZ4`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/insng1.png)</div>
+1. [Konfigurasi pada VM 1 (Server)](#konfigurasi-vm-1)
+2. [Konfigurasi NTPSec](#konfigurasi-ntpsec-vm-1)
+3. [Konfigurasi File Samba](#konfigurasi-samba-vm-1) 
+4. [Konfigurasi DNS Server](#konfigurasi-dns-server-vm-1)
+5. [Konfigurasi pada VM 2 (Client)](#konfigurasi-vm-2)
+6. [Kesimpulan](#kesimpulan)
 
-Langkah 2:<br>
-Ekstrak file ZIP yang telah diunduh, dan masuk ke dalam folder debian12-10-nogui > debidora-nogui.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/insng2.png)</div>
-<br><div style=width:500;>![ss](assets/insng3.png)</div>
-<br><div style=width:500;>![ss](assets/insng4.png)</div>
+Dalam praktikum ini, diperlukan 2 Virtual Machine (VM) yang akan berperan sebagai **Client** dan **Server**.
 
-Langkah 3:<br>
-Buka file debidora-nogui yang memiliki ikon biru, lalu virtual box akan otomatis akan terbuka dan virtual machine no-GUI akan terbuat.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/insng5.png)</div>
-<br><div style=width:500;>![ss](assets/insng6.png)</div>
+### Konfigurasi VM 1 (Server)
 
-Langkah 4:<br>
-Tekan settings dengan memilih debidora-nogui, lalu menuju menu network. Ubah adapter 1 menjadi bridged network dan adapter 2 menjadi internal network. Tekan OK untuk menyimpan perubahan.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/insng7.png)</div>
-<br><div style=width:500;>![ss](assets/insng8.png)</div>
-<br><div style=width:500;>![ss](assets/insng9.png)</div>
+VM 1 akan berperan sebagai server. Konfigurasi jaringan nya menggunakan dua network adapter, yaitu:
 
-## Konfigurasi Virtual Machine No-GUI (VM 1)
-Langkah 1:<br>
-Login dengan menggunakan student sebagai username dan password.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/confng1.png)</div>
+- Bridge Adapter yang digunakan untuk koneksi internet.
 
-Langkah 2:<br>
-Jalankan perintah `ip a` untuk melihat ip address dan ambil ip dari interface enp0s3. Buka terminal atau command prompt pada window host, jalankan command ssh student@\[IP-Address-enp0s3] dan login seperti dalam VM untuk menggunakan VM no-GUI dalam terminal windows.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/confng2.png)</div>
-<br><div style=width:500;>![ss](assets/confng3.png)</div>
+- Internal Network yang digunakan untuk komunikasi langsung dengan VM Client.
 
-Langkah 3:<br>
-Setelah itu, Konfigurasikan jaringan dan cek dengan menggunakan perintah `nano -l -w /etc/network/interfaces`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/confng4.png)</div>
-<br><div style=width:500;>![ss](assets/confng5.png)</div>
+VM 1 difungsikan sebagai gateway untuk menghubungkan client ke jaringan internet. Selain itu, server ini juga disiapkan dengan beberapa layanan seperti **Samba** untuk berbagi file, **NTPSec** untuk sinkronisasi waktu, dan **Bind9** untuk pengelolaan domain lokal.
 
-Langkah 4:<br>
-Konfigurasi `sysctl.conf` untuk menghapus comment pada bagian `net.ipv4.ip_forward=1` dengan menggunakan perintah `nano -l -w /etc/sysctl.conf`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/confng6.png)</div>
-<br><div style=width:500;>![ss](assets/confng7.png)</div>
+#### Konfigurasi Network Adapter
 
-Langkah 5:<br>
-Unduh package `iptables` dan `iptables-persistent` dengan menggunakan perintah `sudo apt-get install iptables iptables-persistent`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/confng8.png)</div>
+![App Screenshot](img/vm1-bridged-adapter.png)
 
-Langkah 6:<br>
-tambahkan baris kode berikut kedalam `/etc/iptables/rules.v4` menggunakan perintah `sudo nano -l -w /etc/iptables/rules.v4`.
-```bash
-*nat
- -A POSTROUTING -o enp0s3 -j MASQUERADE
- COMMIT
+![App Screenshot](img/vm1-internal-network.png)
 
- *filter
- -A INPUT -i lo -j ACCEPT
- # allow ssh, so that we do not lock ourselves
- -A INPUT -i enp0s3 -p tcp -m tcp --dport 22 -j ACCEPT
- # allow incoming traffic to the outgoing connections,
- # et al for clients from the private network
- -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
- # prohibit everything else incoming
- -A INPUT -i enp0s3 -j DROP
- COMMIT
-```
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/confng9.png)</div>
-<br><div style=width:500;>![ss](assets/confng10.png)</div>
+Server dikonfigurasi dengan dua network adapter, yaitu **Bridged Adapter** dan **Internal Network**. **Bridged Adapter** digunakan untuk mengakses jaringan internet melalui koneksi fisik host, sedangkan **Internal Network** digunakan untuk membangun koneksi lokal langsung dengan VM 2 yang berperan sebagai client.
 
-Langkah 7:<br>
-Jalankan perintah `sudo iptables-restore < /etc/iptables/rules.v4` untuk mengembalikan aturan-aturan iptables dari file konfigurasi yang telah disimpan sebelumnya.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/confng11.png)</div>
+#### Konfigurasi IP Address untuk Koneksi Internal antar VM
 
-Langkah 8:
-Lakukan reboot VM dengan menggunakan perintah `sudo reboot`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/confng12.png)</div>
+1. Cek IP Address
 
-## Instalasi NTP Client
-Langkah 1:
-Instalasi NTP Client menggunakan perintah `sudo apt -y install ntpsec`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/ntpng1.png)</div>
+   ![App Screenshot](img/cek-ip.png)
 
-Langkah 2:
-Setelah selesai instalasi, gunakan perintah `sudo nano /etc/ntpsec/ntp.conf` untuk mengakses file konfigurasi NTP Client.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/ntpng2.png)</div>
+2. Akses terminal VM 1 menggunakan SSH
 
-Langkah 3:
-Pada dalam ntp.conf, beri komen (#) pada pool ke empat pool yang ada dan masukkan server Indonesia yang dapat disalin dari web `https://www.ntppool.org/en/zone/id`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/ntpng3.png)</div>
+   ![App Screenshot](img/ssh-student.png)
 
-Langkah 4:
-Setelah konfigurasi, lakukan restart untuk NTP Client untuk menggunakan konfigurasi yang baru dengan perintah `sudo systemctl restart ntpsec`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/ntpng4.png)</div>
- 
-Langkah 5:
-Untuk melihat jika sudah tersambung dengan server, gunakan perintah `ntpq -p`.
-<br>Gambar:
- <br><div style=width:500;>![ss](assets/ntpng5.png)</div>
+   Untuk melakukan konfigurasi pada VM 1 yang berperan sebagai server, koneksi dapat dilakukan secara remote dari host menggunakan protokol SSH (Secure Shell).
+   
+3. Tambahkan file `/etc/network/interfaces`
 
-Langkah 6:
-Periksa waktu NTP Client dengan menggunakan perintah `sudo systemctl status ntpsec`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/ntpng6.png)</div>
+   ![App Screenshot](img/etc-network-interfaces.png)
 
-## Instalasi Samba
-Langkah 1:<br>
-unduh package samba dengan menggunakan perintah `sudo apt -y install samba`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng1.png)</div>
+   Setiap network adapter yang terpasang pada sistem akan secara otomatis diberi nama unik. Pada VM yang digunakan, adapter teridentifikasi sebagai enp0s3 untuk Bridged Adapter dan enp0s8 untuk Internal Network. Adapter enp0s3 dikonfigurasi menggunakan metode DHCP agar dapat memperoleh alamat IP secara otomatis dari jaringan internet. Sementara itu, adapter enp0s8 dikonfigurasi secara manual dan akan berperan sebagai gateway untuk VM client.
 
-Langkah 2:<br>
-Membuat direktori dengan menggunaakn perintah `sudo mkdir /home/public`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng2.png)</div>
+#### Aktifkan forwarding di Server
 
-Langkah 3:<br>
-Merubah akses agar semua dapat write, read, dan excute dengan perintah `sudo chmod 777 /home/public`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng3.png)</div>
+1. `/etc/sysctl.conf`
 
-Langkah 4:<br>
-Konfigurasi file samba menggunakan perintah `sudo nano /etc/samba/smb.conf`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng4.png)</div>
+   ![App Screenshot](img/etc-sysctl-conf.png)
 
-Langkah 5:<br>
-Menambahkan `unix charset = UTF-8` untuk kompatibilitas dengan sistem yang mendukung pengkodean UTF-8.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng5.png)</div>
+   Untuk membuat sistem berfungsi sebagai router atau gateway, konfigurasi IP forwarding harus diaktifkan. Langkah ini dilakukan dengan mengedit file konfigurasi dan mengaktifkan opsi `net.ipv4.ip_forward`.
 
-Langkah 6:<br>
-Menambahkan interface sesuai dengan alamat IP yang akan digunakan.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng6.png)</div>
+2. Lakukan Validasi
 
-Langkah 7:<br>
-Menambahkan konfigurasi folder public.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng7.png)</div>
+   ![App Screenshot](img/sysctl-p.png)
 
-Langkah 8:<br>
-Melakukan restart dengan perintah `sudo systemctl restart smbd`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng8.png)</div>
+#### Konfigurasi Iptables
 
-Langkah 9:<brd>
-Lakukan pengecekan akses samba dalam VM 1 yang menggunakan IP Statik [smb://192.168.200.1] dengan menggunakan VM 2.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/smbng9.png)</div>
-<br><div style=width:500;>![ss](assets/smbng10.png)</div>
+1. Install Paket iptables dan iptables-persistant
 
-## Instalasi Bind9 (DNS)
-Langkah 1:<br>
-Instalasi BIND menggunakan perintah `sudo apt -y install bind9 bind9utils`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng1.png)</div>
+   ![App Screenshot](img/install-iptables-iptables-persistent.png)
 
-Langkah 2:<br>
-Konfigurasi BIND untuk network internal dalam named.conf menggunakan perintah `sudo nano /etc/bind/named.conf` untuk menambahkan `include "/etc/bind/named.conf.internal-zones";`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng2.png)</div>
+2. Konfigurasi iptables pada file `/etc/iptables/rules.v4`
 
-Langkah 3:<br>
-Konfigurasi BIND untuk network internal dalam named.conf.options menggunakan perintah `sudo nano /etc/bind/named.conf.options` untuk menambahkan: 
-```bash
-        acl internal-network {
-                192.168.200.0/24;
-        };
-...
-...
-        allow-query { localhost; internal-network; };
-        allow-transfer { localhost; };
-        listen-on port 53 { any; };
-        recursion yes;
-```
-Gambar:
-<br><div style=width:500;>![ss](assets/dnsng3.png)</div>
-<br><div style=width:500;>![ss](assets/dnsng4.png)</div>
+   ![App Screenshot](img/etc-iptables-rules-v4.png)
 
-Langkah 4:<br>
-Konfigurasi BIND untuk network internal dalam named.conf.internal-zones menggunakan perintah `sudo nano /etc/bind//etc/bind/named.conf.internal-zones` untuk menambahkan:<br>
-```bash
-zone "kelompok2.home" IN {
-        type master;
-        file "/etc/bind/kelompok2.home.lan";
-        allow-update { none; };
-};
-zone "200.168.192.in-addr.arpa" IN {
-        type master;
-        file "/etc/bind/200.168.192.db";
-        allow-update { none; };
-};
-```
-Gambar:
-<br><div style=width:500;>![ss](assets/dnsng5.png)</div>
+3. Jalankan perintah `iptables-restore < /etc/iptables/rules.v4` untuk menyimpan konfigurasi iptables
 
-Langkah 5:<br>
-Konfigurasi BIND untuk network internal dalam /default/named menggunakan perintah `sudo nano /etc/default/named` untuk menambahkan:<br>
-```bash
-# add
-OPTIONS="-u bind -4"
-```
-Gambar:
-<br><div style=width:500;>![ss](assets/dnsng6.png)</div>
+    ![App Screenshot](img/iptables-restore.png)
 
-Langkah 6:<br>
-Membuat file zona yang digunakan server untuk menyelesaikan alamat IP dari nama domain, menggunakan perintah `sudo nano /etc/bind/kelompok2.home.lan`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng7.png)</div>
+#### Reboot
 
-Langkah 7:<br>
-Buat file zona yang memungkinkan server mengubah nama domain menjadi alamat IP menggunakan perintah `sudo nano /etc/bind/200.168.192.db`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng8.png)</div>
+Setelah menyelesaikan seluruh proses konfigurasi, jalankan perintah `reboot` untuk me-restart VM.
 
-Langkah 8:<br>
-Restart BIND untuk menyimpan perubahan menggunakan `sudo systemctl restart named`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng9.png)</div>
+### Konfigurasi NTP (NTPSec) pada VM 1
 
-Langkah 9:<br>
-Merubah pengaturan DNS untuk merujuk ke DNS sendiri pada `sudo nano /etc/resolv.conf`.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng10.png)</div>
+1. Install paket ntpsec
 
-Langkah 10:<br>
-Pada VM 2, ubah adapter 1 di setting > Network menjadi internal network.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng11.png)</div>
+   ![App Screenshot](img/install-ntpsec.png)
 
-Langkah 11:<br>
-Konfigurasi jaringan Wired menjadi IP statik seperti yang tertera pada gambar. Jika sudah, klik apply untuk menyimpan perubahan.
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng12.png)</div>
+2. Konfigurasi server NTP
 
-Langkah 12:<br>
-Jika VM 2 sudah terhubung dengan VM 1 melalui internal network, lakukan pengecekan DNS yang ada pada VM 1 dengan menggunakan `dig ns.kelompok2.home.` dan `dig -x 192.168.200.1`. Indikasi berhasilnya DNS pada VM 1 dapat dilihat dari flag `ANSWER: 1` atau lebih dan dengan `status: NOERROR`
-<br>Gambar:
-<br><div style=width:500;>![ss](assets/dnsng13.png)</div>
-<br><div style=width:500;>![ss](assets/dnsng14.png)</div>
+   ![App Screenshot](img/etc-ntpsec-ntp-conf.png)
+
+3. Restart service ntpsec, jalankan perintah `systemctl restart ntpsec`
+
+   ![App Screenshot](img/systemctl-restart-ntpsec.png)
+
+4. Kemudian cek menggunakan perintah `systemctl status ntpsec`
+
+   ![App Screenshot](img/systemctl-status-ntpsec.png)
+
+5. Validasi NTP Server
+   
+   ![App Screenshot](img/ntpq-p.png)
+
+### Konfigurasi File Samba pada VM 1
+
+1. Install paket samba
+
+   ![App Screenshot](img/install-samba.png)
+
+2. Buat direktori `mkdir /home/share` dan ubah permission agar bisa diakses `chmod 777 /home/share`
+
+   ![App Screenshot](img/mkdir-home-share.png)
+
+3. Konfigurasi samba pada file `/etc/samba/smb.conf`
+
+   ![App Screenshot](img/etc-samba-smb-conf-global.png)
+
+   ![App Screenshot](img/etc-samba-smb-conf-share.png)
+
+4. Restart service dengan perintah `systemctl restart smbd`
+
+   ![App Screenshot](img/systemctl-restart-smbd.png)
+
+### Konfigurasi DNS Server pada VM 1 
+
+1. Instalasi paket dengan menjalankan perintah `apt -y install bind9 bind9utils`
+
+   ![App Screenshot](img/install-bind9-bind9utils.png)
+
+2. Lakukan modifikasi pada file `/etc/bind/named.conf` dengan menambahkan `include "/etc/bind/named.conf.internal-zones";`
+
+   ![App Screenshot](img/etc-bind-named-conf.png)
+
+3. Modifikasi file `/etc/bind/named.conf.options`
+
+   ![App Screenshot](img/etc-bind-named-conf-options.png)
+
+4. Konfigurasi internal zone pada file `/etc/bind/named.conf.internal-zones`
+
+   ![App Screenshot](img/etc-bind-named-conf-internal-zones.png)
+
+5. Modifikasi file `/etc/default/named` dengan menambahkan `-4`
+
+   ![App Screenshot](img/etc-default-named.png)
+
+6. Membuat file sesuai dengan domain lokal
+
+   ![App Screenshot](img/etc-bind-kelompok3-home-lan.png)
+
+7. Membuat file sesuai dengan IP Address
+
+   ![App Screenshot](img/etc-bind-3-168-192-db.png)
+
+### Konfigurasi pada VM 2
+
+VM 2 dikonfigurasi dengan alamat IP yang berada dalam satu jaringan dengan interface internal VM 1 (enp0s3), sehingga keduanya dapat saling terhubung dan berkomunikasi.
+
+![App Screenshot](img/etc-network-interfaces-vm2.png)
+
+#### Cek koneksi dengan melakukan ping ke gateway
+
+![App Screenshot](img/ping-gateway.png)
+
+#### Cek koneksi dengan melakukan ping ke DNS server
+
+![App Screenshot](img/ping-dns-server.png)
+
+#### Cek koneksi dengan melakukan ping ke domain lokal
+
+![App Screenshot](img/ping-kelompok3-home.png)
+
+#### Tes akses folder dari Samba (Client)
+
+![App Screenshot](img/tes-akses-file-dari-samba.png)
+
+Jika folder **Share** sudah muncul di tampilan file manager client seperti yang terlihat pada gambar, itu berarti konfigurasi Samba di server sudah berjalan dengan benar dan client berhasil mengakses resource sharing yang disediakan oleh server.
+
+#### Cek DNS Server (Client) menggunakan nama domain
+
+![App Screenshot](img/cek-menggunakan-nama-domain.png)
+
+Hasil pengecekan menggunakan perintah `dig` menunjukkan bahwa domain `ns.kelompok3.home` berhasil ter-resolve ke alamat IP `192.168.3.1` tanpa adanya error. Hal ini menandakan bahwa konfigurasi DNS pada server sudah berjalan dengan benar dan client dapat mengenali nama domain lokal yang telah ditentukan.
+
+#### Cek DNS Server (Client) menggunakan IP address
+
+![App Screenshot](img/cek-menggunakan-ip-addr.png)
+
+Hasil perintah `dig -x 192.168.3.1` menunjukkan bahwa IP tersebut berhasil di-resolve menjadi nama domain `ns.kelompok3.home`. Ini menandakan bahwa konfigurasi reverse DNS (PTR record) pada server telah berhasil dilakukan dengan benar dan sistem DNS sudah dapat menerjemahkan alamat IP menjadi hostname sesuai konfigurasi.
+
+## Kesimpulan
+
+Dalam praktikum ini, saya berhasil mengkonfigurasi dua Virtual Machine, yaitu VM1 sebagai server dan VM2 sebagai client. Saya mengatur server dengan dua adapter jaringan (Bridged Adapter dan Internal Network), kemudian mengaktifkan fitur IP forwarding agar server dapat berfungsi sebagai gateway. Saya juga memberikan IP statis pada masing-masing VM dalam jaringan yang sama agar keduanya dapat saling terhubung. Selain itu, saya menggunakan SSH untuk mengakses server dari client secara remote. Praktikum ini membantu saya memahami cara membangun koneksi jaringan lokal serta mengelola komunikasi antar perangkat virtual secara langsung.
