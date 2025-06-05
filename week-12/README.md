@@ -7,8 +7,8 @@
   <img src="https://upload.wikimedia.org/wikipedia/id/4/44/Logo_PENS.png" alt="Logo PENS">
   <h3 style="text-align: center;">Disusun Oleh :</h3>
   <p style="text-align: center;">
-    <strong>Maula Shahihah Nur Sa'adah</strong><br>
-    <strong>3123500008</strong>
+    <strong>Marieta Nona Alfani</strong><br>
+    <strong>3123500026</strong>
   </p>
 
 <h3 style="text-align: center;line-height: 1.5">Politeknik Elektronika Negeri Surabaya<br>Departemen Teknik Informatika Dan Komputer<br>Program Studi Teknik Informatika<br>2024/2025</h3>
